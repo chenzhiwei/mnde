@@ -1,0 +1,38 @@
+# The Vim Configuration
+
+## How to
+
+1. Clone repo in your home folder.
+```bash
+$ cd ~
+$ git clone http://github.com/chenzhiwei/dot_vim.git
+$ mv dot_vim .vim
+$ mv .vim/dot_vimrc ~/.vimrc
+```
+
+2. Install [vim-pathogen](https://github.com/tpope/vim-pathogen)
+Manage your 'runtimepath' with ease.  In practical terms, pathogen.vim makes it super easy to install plugins and runtime files in their own private directories.
+```bash
+$ cd ~
+$ mkdir -p ~/.vim/autoload ~/.vim/bundle
+$ curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+```
+
+Add this to your vimrc:
+```vim
+call pathogen#infect()
+```
+
+4. Install [vim-markdown](https://github.com/plasticboy/vim-markdown)
+```bash
+$ cd ~/.vim/bundle
+$ git clone https://github.com/plasticboy/vim-markdown.git
+```
+
+5. Install [python-vim](https://github.com/hdima/vim-scripts/tree/master/syntax/python)
+具体安装方法看他们的文档
+
+6. Install [other vim plugins](http://www.vim.org/scripts/)
+太多关于vim的插件脚本了，有什么需求就用什么。
+
+比如说HTML/CSS/JAVASCRIPT的vim插件，还有nginx配置文件相关的插件等。
