@@ -10,7 +10,7 @@ $ git clone http://github.com/chenzhiwei/dot_vim.git
 $ mv .vim .vim_bak
 $ mv .vimrc .vimrc_bak
 $ mv dot_vim .vim
-$ mv .vim/dot_vimrc ~/.vimrc
+$ ln -sf dot_vim ../.vimrc
 ```
 
 ## Resource
