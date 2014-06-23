@@ -7,8 +7,8 @@ Include pathogen, markdown and python plugin.
 ```bash
 $ cd ~
 $ rm -rf .vim
-$ git clone --recursive http://github.com/chenzhiwei/dot_vim.git .vim
-$ ln -sf .vimrc .vim/dot_vimrc
+$ git clone --recursive https://github.com/chenzhiwei/dot_vim.git .vim
+$ ln -sf .vim/dot_vimrc .vimrc
 ```
 
 ## Resource
