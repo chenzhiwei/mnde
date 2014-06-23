@@ -91,7 +91,7 @@ autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
 autocmd BufWinLeave *.py :![ -x % ] || chmod +x %
 
 "Pathogen support
-call pathogen#infect()
+execute pathogen#infect()
 
 "markdown disable folding
 let g:vim_markdown_folding_disabled=1

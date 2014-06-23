@@ -6,11 +6,9 @@ Include pathogen, markdown and python plugin.
 
 ```bash
 $ cd ~
-$ git clone http://github.com/chenzhiwei/dot_vim.git
-$ mv .vim .vim_bak
-$ mv .vimrc .vimrc_bak
-$ mv dot_vim .vim
-$ ln -sf dot_vim ../.vimrc
+$ rm -rf .vim
+$ git clone --recursive http://github.com/chenzhiwei/dot_vim.git .vim
+$ ln -sf .vimrc .vim/dot_vimrc
 ```
 
 ## Resource
@@ -19,12 +17,16 @@ $ ln -sf dot_vim ../.vimrc
 
 Manage your 'runtimepath' with ease.  In practical terms, pathogen.vim makes it super easy to install plugins and runtime files in their own private directories.
 
-* Install [vim-markdown](https://github.com/plasticboy/vim-markdown)
+* [vim-markdown](https://github.com/plasticboy/vim-markdown)
 
 Syntax highlighting and matching rules for Markdown.
 
-* Install [python-vim](https://github.com/hdima/vim-scripts/tree/master/syntax/python)/[python.vim](http://www.vim.org/scripts/script.php?script_id=790)
+* [python-vim](https://github.com/hdima/vim-scripts/tree/master/syntax/python)/[python.vim](http://www.vim.org/scripts/script.php?script_id=790)
 
 Enhanced version of the python syntax highlighting.
+
+* [vimwiki](https://github.com/vimwiki/vimwiki)
+
+A Personal Wiki For Vim Plugin.
 
 * Other vim scripts [vim-scripts](http://www.vim.org/scripts/)
