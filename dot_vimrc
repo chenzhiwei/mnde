@@ -86,9 +86,9 @@ set ambiwidth=double
 let c_space_errors=1
 
 "IComplete Setting
-autocmd Filetype cpp,c,java set omnifunc=cppcomplete#Complete
-autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
-autocmd BufWinLeave *.py :![ -x % ] || chmod +x %
+"autocmd Filetype cpp,c,java set omnifunc=cppcomplete#Complete
+"autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
+"autocmd BufWinLeave *.py :![ -x % ] || chmod +x %
 
 "Pathogen support
 execute pathogen#infect()
