@@ -85,13 +85,25 @@ set ambiwidth=double
 "Show C space errors
 let c_space_errors=1
 
-"IComplete Setting
-"autocmd Filetype cpp,c,java set omnifunc=cppcomplete#Complete
-"autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
-"autocmd BufWinLeave *.py :![ -x % ] || chmod +x %
-
 "Pathogen support
 execute pathogen#infect()
 
 "markdown disable folding
 let g:vim_markdown_folding_disabled=1
+
+"autocmd settings
+if !exists("autocommands_loaded")
+    let autocommands_loaded = 1
+
+    "Strip trailing withspace
+    fun! StripTrailingWhitespace()
+        if &ft =~ 'mkd'
+            return
+        endif
+        %s/\s\+$//e
+    endfun
+    autocmd BufWritePost * call StripTrailingWhitespace()
+    autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
+    autocmd BufNewFile,BufRead *.{htm,html} set sw=2 ts=2 sts=2
+    autocmd BufNewFile,BufRead *.json if !exists("filetype")|set ft=javascript|endif
+endif
