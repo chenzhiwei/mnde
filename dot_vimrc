@@ -103,7 +103,7 @@ if !exists("autocommands_loaded")
         %s/\s\+$//e
     endfun
     autocmd BufWritePre * call StripTrailingWhitespace()
-    autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
+    "autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
     autocmd BufNewFile,BufRead *.{htm,html} set sw=2 ts=2 sts=2
     autocmd BufNewFile,BufRead *.json if !exists("filetype")|set ft=javascript|endif
 endif
