@@ -21,12 +21,4 @@ Manage your 'runtimepath' with ease.  In practical terms, pathogen.vim makes it 
 
 Syntax highlighting and matching rules for Markdown.
 
-* [python-vim](https://github.com/hdima/vim-scripts/tree/master/syntax/python)/[python.vim](http://www.vim.org/scripts/script.php?script_id=790)
-
-Enhanced version of the python syntax highlighting.
-
-* [vimwiki](https://github.com/vimwiki/vimwiki)
-
-A Personal Wiki For Vim Plugin.
-
 * Other vim scripts [vim-scripts](http://www.vim.org/scripts/)

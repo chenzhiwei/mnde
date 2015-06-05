@@ -15,11 +15,8 @@ set autoread
 "Font
 set guifont=Courier\ 9
 
-if has("syntax")
-    syntax on
-endif
-
 "Enable syntax hl
+syntax on
 syntax enable
 
 "do not backup file
@@ -85,8 +82,11 @@ set ambiwidth=double
 "Show C space errors
 let c_space_errors=1
 
+"Don't like q:
+map q <Nop>
+
 "Pathogen support
-execute pathogen#infect()
+silent! execute pathogen#infect()
 
 "markdown disable folding
 let g:vim_markdown_folding_disabled=1
@@ -97,9 +97,9 @@ if !exists("autocommands_loaded")
 
     "Strip trailing withspace
     fun! StripTrailingWhitespace()
-        if &ft =~ 'mkd'
-            return
-        endif
+        " if &ft =~ 'mkd'
+        "     return
+        " endif
         %s/\s\+$//e
     endfun
     autocmd BufWritePre * call StripTrailingWhitespace()
