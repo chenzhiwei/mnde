@@ -12,9 +12,6 @@ filetype indent on
 "Set to auto read when a file is changed from the outside
 set autoread
 
-"Font
-set guifont=Courier\ 9
-
 "Enable syntax hl
 syntax on
 syntax enable
@@ -79,11 +76,22 @@ set encoding=utf-8
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set ambiwidth=double
 
+"Highlight trailing spaces/tabs
+match ErrorMsg '\s\+$'
+
 "Show C space errors
-let c_space_errors=1
+"Highligh trailing spaces/tabs in c language files
+"let c_space_errors=1
 
 "Don't like q:
 map q <Nop>
+
+"Map VIM command mode shortcut to bash shortcut
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
+cnoremap <C-k> <Nop>
 
 "Pathogen support
 silent! execute pathogen#infect()
