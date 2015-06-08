@@ -81,10 +81,14 @@ match ErrorMsg '\s\+$'
 
 "Show C space errors
 "Highligh trailing spaces/tabs in c language files
-"let c_space_errors=1
+let c_space_errors=1
 
 "Don't like q:
 map q <Nop>
+
+"Map :Q to :q, :W to :w
+cmap Q q
+cmap W w
 
 "Map VIM command mode shortcut to bash shortcut
 cnoremap <C-a> <Home>
