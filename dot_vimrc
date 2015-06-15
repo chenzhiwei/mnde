@@ -87,8 +87,8 @@ let c_space_errors=1
 map q <Nop>
 
 "Map :Q to :q, :W to :w
-cmap Q q
-cmap W w
+"cmap Q q
+"cmap W w
 
 "Map VIM command mode shortcut to bash shortcut
 cnoremap <C-a> <Home>
