@@ -97,6 +97,8 @@ cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-k> <Nop>
 
+inoremap jk <ESC>
+
 "Pathogen support
 silent! execute pathogen#infect()
 
