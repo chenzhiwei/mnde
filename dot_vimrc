@@ -1,6 +1,9 @@
 "Get out of VI's compatible mode..
 set nocompatible
 
+"I like using dark background terminal
+set background=dark
+
 "Sets how many lines of history VIM has to remember
 set history=500
 
