@@ -95,6 +95,10 @@ map q <Nop>
 "Map :Q to :q, :W to :w
 "cmap Q q
 "cmap W w
+cnoreabbrev Q <C-r>=(getcmdtype()==':'? 'q' : 'Q')<CR>
+cnoreabbrev W <C-r>=(getcmdtype()==':'? 'w' : 'W')<CR>
+cnoreabbrev Wq <C-r>=(getcmdtype()==':'? 'wq' : 'Wq')<CR>
+cnoreabbrev WQ <C-r>=(getcmdtype()==':'? 'wq' : 'WQ')<CR>
 
 "Map VIM command mode shortcut to bash shortcut
 cnoremap <C-a> <Home>
