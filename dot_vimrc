@@ -2,7 +2,7 @@
 set nocompatible
 
 "I like using dark background terminal
-set background=dark
+"set background=dark
 
 "Sets how many lines of history VIM has to remember
 set history=500
@@ -81,6 +81,9 @@ set ambiwidth=double
 
 "Highlight trailing spaces/tabs
 match ErrorMsg '\s\+$'
+
+"Set the comment line DarkBlue
+highlight Comment ctermfg=DarkBlue
 
 "Show C space errors
 "Highligh trailing spaces/tabs in c language files
