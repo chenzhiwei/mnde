@@ -109,6 +109,12 @@ cnoremap <C-k> <Nop>
 
 inoremap jk <ESC>
 
+"C/C++ TagbarToggle key
+nmap <F8> :TagbarToggle<CR>
+
+"Open NERDTree
+nmap <F9> :NERDTree<CR>
+
 "Pathogen support
 silent! execute pathogen#infect()
 
