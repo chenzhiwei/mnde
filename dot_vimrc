@@ -93,7 +93,8 @@ let c_space_errors=1
 map q <Nop>
 
 "When highlight words, don't jump to next
-nnoremap * *``
+"nnoremap * *`` # This will cause screen flicker
+nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 "Map :Q to :q, :W to :w
 "cmap Q q
