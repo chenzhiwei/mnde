@@ -92,6 +92,9 @@ let c_space_errors=1
 "Don't like q:
 map q <Nop>
 
+"When highlight words, don't jump to next
+nnoremap * *``
+
 "Map :Q to :q, :W to :w
 "cmap Q q
 "cmap W w
@@ -114,6 +117,10 @@ nmap <F8> :TagbarToggle<CR>
 
 "Open NERDTree
 nmap <F9> :NERDTree<CR>
+
+"Tab switch
+"inoremap <C-1> 1gt
+"inoremap <C-2> 2gt
 
 "Pathogen support
 silent! execute pathogen#infect()
