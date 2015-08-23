@@ -114,10 +114,10 @@ cnoremap <C-k> <Nop>
 inoremap jk <ESC>
 
 "C/C++ TagbarToggle key
-nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 
 "Open NERDTree
-nmap <F9> :NERDTree<CR>
+nmap <F8> :NERDTree<CR>
 
 "Tab switch
 "inoremap <C-1> 1gt
