@@ -83,7 +83,7 @@ set ambiwidth=double
 match ErrorMsg '\s\+$'
 
 "Set the comment line DarkBlue
-highlight Comment ctermfg=DarkBlue
+"highlight Comment ctermfg=DarkBlue
 
 "Show C space errors
 "Highligh trailing spaces/tabs in c language files
@@ -111,7 +111,8 @@ cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-k> <Nop>
 
-inoremap jk <ESC>
+"when paste a string contains `jk` will encounter error
+"inoremap jk <ESC>
 
 "Open NERDTree
 nmap <F7> :NERDTree<CR>
