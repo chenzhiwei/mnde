@@ -114,10 +114,10 @@ cnoremap <C-k> <Nop>
 "when paste a string contains `jk` will encounter error
 "inoremap jk <ESC>
 
-"Open NERDTree
-nmap <F7> :NERDTree<CR>
+"Open/Close NERDTree
+nmap <F7> :NERDTreeToggle<CR>
 
-"C/C++ TagbarToggle key
+"C/C++ open/close TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 "Tab switch
