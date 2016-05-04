@@ -136,10 +136,13 @@ if !exists("autocommands_loaded")
 
     "Strip trailing withspace
     fun! StripTrailingWhitespace()
+        let l = line(".")
+        let c = col(".")
         " if &ft =~ 'mkd'
         "     return
         " endif
         %s/\s\+$//e
+        call cursor(l, c)
     endfun
     autocmd BufWritePre * call StripTrailingWhitespace()
     "autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
