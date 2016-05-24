@@ -2,6 +2,5 @@
 
 ```
 $ git clone --recursive https://github.com/chenzhiwei/home.git
-$ rm -rf home/.git home/.gitignore home/.gitmodules home/README.md
-$ mv home/.* ~
+$ rsync -a home/.[a-z0-9]* --exclude='.git' --exclude='.git[im]*' ~
 ```
