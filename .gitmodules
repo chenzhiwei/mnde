@@ -1,12 +1,12 @@
-[submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
