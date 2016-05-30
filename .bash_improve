@@ -4,10 +4,8 @@
 # Export GO path
 export GOPATH=$HOME/go
 
-# Add Chef embed ruby
-if [ -d /opt/chef/embedded/bin ]; then
-    export PATH=$PATH:/opt/chef/embedded/bin
-fi
+# Export Vagrant environment
+export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Add custum path
 if [ -d $HOME/.bin ]; then
