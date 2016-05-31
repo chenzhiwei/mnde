@@ -1,6 +1,6 @@
 #!/bin/bash
 
-base=$(cd $(dirname apply.sh) && pwd)
+base=$(cd $(dirname $0) && pwd)
 
 rsync -a "$base"/.[a-z0-9]* --exclude='.git' --exclude='.gitignore' --exclude='.gitmodules' $HOME
 
