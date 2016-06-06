@@ -124,6 +124,12 @@ nmap <F8> :TagbarToggle<CR>
 "inoremap <C-1> 1gt
 "inoremap <C-2> 2gt
 
+"when pasting from system clipboard, press F2 to set
+"paste mode and after pasting pree F2 to set unpaste mode
+"nnoremap <F2> :set invpaste paste?<CR>
+"set pastetoggle=<F2>
+"set showmode
+
 "Pathogen support
 silent! execute pathogen#infect()
 
