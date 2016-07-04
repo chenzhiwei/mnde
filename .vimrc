@@ -1,4 +1,4 @@
-"Get out of VI's compatible mode..
+"Get out of VI's compatible mode
 set nocompatible
 
 "I like using light background terminal
@@ -19,28 +19,18 @@ set autoread
 syntax on
 syntax enable
 
-"do not backup file
-"set nobackup
-
-"Highlight current
-"set cursorline
-
-"Turn on WiLd menu
-"set wildmenu
-
 "Always show current position
 set ruler
 
-"Show line number
+"Show line number and wrap line
 set nu
+set wrap
 
 "Set backspace
 set backspace=eol,start,indent
 
-"Bbackspace and cursor keys wrap to
+"Backspace and cursor keys wrap to
 set whichwrap+=<,>,h,l
-
-set incsearch
 
 "Set magic on
 set magic
@@ -51,9 +41,6 @@ set showmatch
 "How many tenths of a second to blink
 set mat=4
 
-"Highlight search things
-set hlsearch
-
 "Text options
 set expandtab
 set shiftwidth=4
@@ -62,32 +49,35 @@ set softtabstop=4
 set smarttab
 set lbr
 
-"Auto indent
+"Auto/Smart/C-style indent
 set ai
-
-"Smart indent
 set si
-
-"C-style indenting
 set cindent
-
-"Wrap line
-set wrap
 
 "Chinese support
 set encoding=utf-8
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set ambiwidth=double
 
-"Highlight trailing spaces/tabs
-match ErrorMsg '\s\+$'
+"Highlight search things
+set hlsearch
+set incsearch
 
 "Set the comment line DarkBlue
 "highlight Comment ctermfg=DarkBlue
 
-"Show C space errors
+"Highlight trailing spaces/tabs
+match ErrorMsg '\s\+$'
+
 "Highligh trailing spaces/tabs in c language files
 let c_space_errors=1
+
+"Highlight settings in Visual select and Diff mode
+highlight Visual ctermfg=White ctermbg=LightBlue
+highlight DiffAdd    cterm=bold ctermbg=DarkBlue
+highlight DiffDelete cterm=bold ctermbg=DarkBlue
+highlight DiffChange cterm=bold ctermbg=DarkBlue
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 "Don't like q:
 map q <Nop>
@@ -97,8 +87,6 @@ map q <Nop>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 "Map :Q to :q, :W to :w
-"cmap Q q
-"cmap W w
 cnoreabbrev Q <C-r>=(getcmdtype()==':'? 'q' : 'Q')<CR>
 cnoreabbrev W <C-r>=(getcmdtype()==':'? 'w' : 'W')<CR>
 cnoreabbrev Wq <C-r>=(getcmdtype()==':'? 'wq' : 'Wq')<CR>
@@ -111,30 +99,14 @@ cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-k> <Nop>
 
-"when paste a string contains `jk` will encounter error
-"inoremap jk <ESC>
-
 "Open/Close NERDTree
 nmap <F7> :NERDTreeToggle<CR>
 
 "C/C++ open/close TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
-"Tab switch
-"inoremap <C-1> 1gt
-"inoremap <C-2> 2gt
-
-"when pasting from system clipboard, press F2 to set
-"paste mode and after pasting pree F2 to set unpaste mode
-"nnoremap <F2> :set invpaste paste?<CR>
-"set pastetoggle=<F2>
-"set showmode
-
-"Pathogen support
-silent! execute pathogen#infect()
-
-"markdown disable folding
-let g:vim_markdown_folding_disabled=1
+"when pasting from system clipboard, F2 to toggle paste mode
+set pastetoggle=<F2>
 
 "autocmd settings
 if !exists("autocommands_loaded")
@@ -151,7 +123,13 @@ if !exists("autocommands_loaded")
         call cursor(l, c)
     endfun
     autocmd BufWritePre * call StripTrailingWhitespace()
-    "autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
-    autocmd BufNewFile,BufRead *.{htm,html} set sw=2 ts=2 sts=2
-    autocmd BufNewFile,BufRead *.json if !exists("filetype")|set ft=javascript|endif
+    autocmd BufNewFile,BufRead *.{css,htm,html,js,json,rb,xml,yaml,yml} set sw=2 ts=2 sts=2
+    " autocmd BufNewFile,BufRead *.json if !exists("filetype")|set ft=javascript|endif
+    " autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
 endif
+
+"markdown disable folding
+let g:vim_markdown_folding_disabled=1
+
+"Pathogen support
+silent! execute pathogen#infect()
