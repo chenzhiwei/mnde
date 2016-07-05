@@ -63,6 +63,9 @@ set ambiwidth=double
 set hlsearch
 set incsearch
 
+"Auto-complete filename as in bash
+set wildmode=list:longest,full
+
 "Set the comment line DarkBlue
 "highlight Comment ctermfg=DarkBlue
 
@@ -77,6 +80,7 @@ highlight Visual ctermfg=White ctermbg=LightBlue
 highlight DiffAdd    cterm=bold ctermbg=DarkBlue
 highlight DiffDelete cterm=bold ctermbg=DarkBlue
 highlight DiffChange cterm=bold ctermbg=DarkBlue
+highlight DiffText cterm=bold ctermfg=white ctermbg=Red
 " highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 "Don't like q:
