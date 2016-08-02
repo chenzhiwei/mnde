@@ -76,6 +76,7 @@ match ErrorMsg '\s\+$'
 let c_space_errors=1
 
 "Highlight settings in Visual select and Diff mode
+highlight Search ctermfg=DarkBlue
 highlight Visual ctermfg=White ctermbg=LightBlue
 highlight DiffAdd    cterm=bold ctermbg=DarkBlue
 highlight DiffDelete cterm=bold ctermbg=DarkBlue
