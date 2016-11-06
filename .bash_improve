@@ -9,7 +9,7 @@ export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Add custum path
 if [ -d $HOME/.bin ]; then
-    export PATH=$PATH:$HOME/.bin
+    export PATH=$PATH:$HOME/.bin:$HOME/.npm-packages/bin
 fi
 
 # Command alias
