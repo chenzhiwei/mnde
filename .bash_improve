@@ -17,3 +17,6 @@ alias tree='tree --charset=ascii'
 alias pstree='pstree -A'
 alias be='bundle exec'
 alias bi='bundle install'
+
+# Disable Ctrl-s and Ctrl-q
+stty -ixon

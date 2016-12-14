@@ -10,3 +10,9 @@ startup_message off
 # allow Shift+Page Up/Down
 termcapinfo xterm ti@:te@
 termcapinfo xterm-color ti@:te@
+
+# update escape key to Ctrl-s (default is Ctrl-a)
+escape ^Ss
+
+# usage
+# Ctrl + s + esc to enter vim mode to see history
