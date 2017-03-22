@@ -1,22 +1,28 @@
 # Usage: Add following line to ~/.bashrc
 # . $HOME/.bash_improve
 
-# Export GO path
-export GOPATH=$HOME/go
-
 # Export Vagrant environment
-export VAGRANT_DEFAULT_PROVIDER=libvirt
-
-# Add custum path
-if [ -d $HOME/.bin ]; then
-    export PATH=$PATH:$HOME/.bin:$HOME/.npm-packages/bin
+if [ $(uname -s) == 'Linux' ]; then
+    export VAGRANT_DEFAULT_PROVIDER=libvirt
 fi
+
+# PATH
+if [ -d $HOME/Apps ]; then
+    for app in $HOME/Apps/*; do
+        if [ -d $app/bin ]; then
+            PATH=$PATH:$app/bin
+        fi
+    done
+fi
+
+# GOPATH
+GOPATH=$HOME/Apps/go
+
+export PATH GOPATH
 
 # Command alias
 alias tree='tree --charset=ascii'
 alias pstree='pstree -A'
-alias be='bundle exec'
-alias bi='bundle install'
 
 # Disable Ctrl-s and Ctrl-q
 stty -ixon

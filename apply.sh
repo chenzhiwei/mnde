@@ -13,5 +13,3 @@ else
         echo '. $HOME/.bash_improve' >> $HOME/.bash_profile
     fi
 fi
-
-# [ -f ~/.bashrc ] && echo '. $HOME/.bash_improve' >> ~/.bashrc || echo '. $HOME/.bash_improve' >> ~/.bash_profile
