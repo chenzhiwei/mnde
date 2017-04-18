@@ -26,3 +26,6 @@ alias pstree='pstree -A'
 
 # Disable Ctrl-s and Ctrl-q
 stty -ixon
+
+# Make bash in emacs mode, this makes Bash shortcuts working
+set -o emacs
