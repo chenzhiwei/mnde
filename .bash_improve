@@ -15,10 +15,11 @@ if [ -d $HOME/Apps ]; then
     done
 fi
 
-# GOPATH
-GOPATH=$HOME/Apps/go
+# GOPATH & GOROOT
+GOPATH=$HOME/go
+GOROOT=$HOME/Apps/go
 
-export PATH GOPATH
+export PATH GOPATH GOROOT
 
 # Command alias
 alias tree='tree --charset=ascii'
