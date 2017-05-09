@@ -133,8 +133,11 @@ if !exists("autocommands_loaded")
     " autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
 endif
 
+"Use bash syntax highlight
+let g:is_bash = 1
+
 "markdown disable folding
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled = 1
 
 "Pathogen support
 silent! execute pathogen#infect()
