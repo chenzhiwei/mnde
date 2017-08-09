@@ -57,7 +57,7 @@ set cindent
 "Chinese support
 set encoding=utf-8
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set ambiwidth=double
+set ambiwidth=single
 
 "Highlight search things
 set hlsearch
