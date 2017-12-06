@@ -133,6 +133,11 @@ if !exists("autocommands_loaded")
     " autocmd BufWinLeave *.sh :![ -x % ] || chmod +x %
 endif
 
+"FileType
+autocmd FileType go setlocal noexpandtab
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 "Use bash syntax highlight
 let g:is_bash = 1
 
