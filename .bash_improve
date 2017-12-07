@@ -7,8 +7,9 @@ if [ $(uname -s) == 'Linux' ]; then
 fi
 
 # PATH
-if [ -d $HOME/Apps ]; then
-    for app in $HOME/Apps/*; do
+local_path=$HOME/dev/local
+if [ -d $local_path ]; then
+    for app in $local_path/*; do
         if [ -d $app/bin ]; then
             PATH=$PATH:$app/bin
         fi
@@ -16,8 +17,8 @@ if [ -d $HOME/Apps ]; then
 fi
 
 # GOPATH & GOROOT
-GOPATH=$HOME/go
-GOROOT=$HOME/Apps/go
+GOPATH=$local_path/gopath
+GOROOT=$local_path/goroot
 
 export PATH GOPATH GOROOT
 
