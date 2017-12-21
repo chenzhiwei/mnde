@@ -3,7 +3,7 @@
     email   = zhiweik@gmail.com
 [core]
     editor  = vim
-    pager   = less -r
+    pager   = less -x1,5
 [merge]
     tool    = vimdiff
 [color]
