@@ -1,6 +1,9 @@
 # scrollback buff, 50000 lines
 defscrollback 50000
 
+# Enable alternate screen
+altscreen on
+
 # no delay when entering copy mode
 msgminwait 0
 
