@@ -1,0 +1,11 @@
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+default-size-columns=511
+background-transparency-percent=15
+use-theme-transparency=false
+default-size-rows=511
+scrollback-lines=50000
+use-transparent-background=true
+visible-name='Default'
+
+[legacy]
+default-show-menubar=false

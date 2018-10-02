@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/zhiwei/.startrc/keymap.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=xmodmap
+Name=xmodmap
+Comment[en_US]=remap f10 to insert
+Comment=remap f10 to insert
