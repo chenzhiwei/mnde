@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/zhiwei/.startrc/keymap.sh
+Exec=/home/zhiwei/.config/zhiwei/keymap.sh
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
