@@ -1,0 +1,4 @@
+[custom0]
+binding='<Primary><Alt>a'
+command='env QT_AUTO_SCREEN_SCALE_FACTOR=1 deepin-screenshot'
+name='deepin-screenshot'
