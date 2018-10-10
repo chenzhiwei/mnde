@@ -7,6 +7,7 @@ rsync -a "$base"/.[a-z0-9]* --exclude='.git' --exclude='.gitignore' --exclude='.
 # dconf dump /org/gnome/terminal/ > gnome-terminal.dconf
 dconf load /org/gnome/terminal/ < $base/dconf/gnome-terminal.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < $base/dconf/custom-keybinding.dconf
+# dconf load /com/gexperts/Tilix/ < tilix.dconf
 
 if [ -f $HOME/.bashrc ]; then
     if ! grep -wq bash_improve $HOME/.bashrc; then
