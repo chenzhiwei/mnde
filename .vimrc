@@ -5,7 +5,7 @@ set nocompatible
 set background=light
 
 "Sets how many lines of history VIM has to remember
-set history=500
+set history=1000
 
 "Enable filetype plugin
 filetype on
@@ -92,23 +92,25 @@ map q <Nop>
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 "Map :Q to :q, :W to :w
-cnoreabbrev Q <C-r>=(getcmdtype()==':'? 'q' : 'Q')<CR>
+cnoreabbrev Q <C-r>=(getcmdtype()==':'? 'q!' : 'Q')<CR>
 cnoreabbrev W <C-r>=(getcmdtype()==':'? 'w' : 'W')<CR>
 cnoreabbrev Wq <C-r>=(getcmdtype()==':'? 'wq' : 'Wq')<CR>
 cnoreabbrev WQ <C-r>=(getcmdtype()==':'? 'wq' : 'WQ')<CR>
 
-"Map VIM command mode shortcut to bash shortcut
+"Map VIM command/insert mode shortcut to bash shortcut
 cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-k> <Nop>
-
-"Open/Close NERDTree
-nmap <F7> :NERDTreeToggle<CR>
-
-"C/C++ open/close TagbarToggle
-nmap <F8> :TagbarToggle<CR>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-d> <Del>
 
 "when pasting from system clipboard, F2 to toggle paste mode
 set pastetoggle=<F2>
@@ -140,9 +142,3 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Use bash syntax highlight
 let g:is_bash = 1
-
-"markdown disable folding
-let g:vim_markdown_folding_disabled = 1
-
-"Pathogen support
-silent! execute pathogen#infect()

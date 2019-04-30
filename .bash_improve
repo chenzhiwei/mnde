@@ -6,22 +6,6 @@ if [ $(uname -s) == 'Linux' ]; then
     export VAGRANT_DEFAULT_PROVIDER=libvirt
 fi
 
-# PATH
-local_path=$HOME/dev/local
-if [ -d $local_path ]; then
-    for app in $local_path/*; do
-        if [ -d $app/bin ]; then
-            PATH=$PATH:$app/bin
-        fi
-    done
-fi
-
-# GOPATH & GOROOT
-GOPATH=$local_path/gopath
-GOROOT=$local_path/goroot
-
-export PATH GOPATH GOROOT
-
 # Command alias
 alias tree='tree --charset=ascii'
 alias pstree='pstree -A'
