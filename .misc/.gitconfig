@@ -1,0 +1,26 @@
+[user]
+    name    = Chen Zhiwei
+    email   = zhiweik@gmail.com
+[core]
+    editor  = vim
+    pager   = less -x1,5
+[merge]
+    tool    = vimdiff
+[color]
+    diff    = auto
+    status  = auto
+    branch  = auto
+    interactive = auto
+[alias]
+    st  = status
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    history = log -p --
+[pull]
+	ff = only
+[push]
+    default = simple
+[credential]
+    helper = store
+# [http]
+#    proxy = http://localhost:7980
