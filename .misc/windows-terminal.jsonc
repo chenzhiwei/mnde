@@ -106,7 +106,8 @@
     {
         "defaults":
         {
-            "cursorShape": "filledBox"
+            "cursorShape": "filledBox",
+            "bellStyle": "visual"
         },
         "list":
         [
