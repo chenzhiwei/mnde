@@ -2,17 +2,21 @@
 
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 
+if ! type curl &>/dev/null; then
+    echo
+    echo "this script requires curl to work properly"
+    echo
+    exit 1
+fi
+
 cd $ROOT_PATH
 
 ## NodeJS
 function node_install() {
-    VERSION=$(curl https://resolve-node.vercel.app/lts)
+    VERSION=$(curl -s https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1;exit}')
     URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
-    if type curl &>/dev/null; then
-        curl -kL $URL | tar -xz -C /tmp/
-    else
-        wget -O - $URL | tar -xz -C /tmp/
-    fi
+
+    curl -kL $URL | tar -xz -C /tmp/
 }
 
 ## Golang installtion
@@ -22,11 +26,7 @@ function golang_install() {
     VERSION=$(curl -s https://golang.org/VERSION?m=text)
     URL=https://dl.google.com/go/${VERSION}.${KERNAL}-${ARCH}.tar.gz
 
-    if type curl &>/dev/null; then
-        curl -kL $URL | tar -xz -C /tmp/
-    else
-        wget -O - $URL | tar -xz -C /tmp/
-    fi
+    curl -kL $URL | tar -xz -C /tmp/
 
     rm -rf go && mv /tmp/go go
 }
