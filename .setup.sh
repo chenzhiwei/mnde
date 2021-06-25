@@ -16,7 +16,8 @@ function node_install() {
     VERSION=$(curl -s https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1;exit}')
     URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
 
-    curl -kL $URL | tar -xz -C /tmp/
+    curl -kL $URL | tar -xJ -C /tmp/
+    rm -rf node && mv /tmp/node-$VERSION-linux-x64 node
 }
 
 ## Golang installtion
@@ -30,3 +31,6 @@ function golang_install() {
 
     rm -rf go && mv /tmp/go go
 }
+
+node_install
+golang_install
