@@ -1,0 +1,21 @@
+# scrollback buff, 50000 lines
+defscrollback 50000
+
+# Enable alternate screen
+altscreen on
+
+# no delay when entering copy mode
+msgminwait 0
+
+# no copyright notice during startup
+startup_message off
+
+# allow Shift+Page Up/Down
+termcapinfo xterm ti@:te@
+termcapinfo xterm-color ti@:te@
+
+# update escape key to Ctrl-s (default is Ctrl-a)
+escape ^Ss
+
+# usage
+# Ctrl + s + esc to enter vim mode to see history
