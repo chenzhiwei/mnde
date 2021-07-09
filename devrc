@@ -1,3 +1,6 @@
+## Override PATH
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 
 ## PATH Settings
@@ -8,8 +11,8 @@ function append_path() {
     fi
 }
 
-for item in $(ls -d $ROOT_PATH/*); do
-    append_path "$item/bin"
+for item in $(ls -d $ROOT_PATH/*/); do
+    append_path "${item}bin"
 done
 
 export GOROOT=$HOME/.dev-tools/go

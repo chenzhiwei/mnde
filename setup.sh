@@ -2,6 +2,9 @@
 
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 
+## Copy home directory files
+cp -r $ROOT_PATH/home/. $HOME/
+
 if ! type curl &>/dev/null; then
     echo
     echo "this script requires curl to work properly"

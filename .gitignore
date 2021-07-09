@@ -1,5 +1,6 @@
 /*
 !.gitignore
-!/.bashrc
-!/.setup.sh
-!/.misc/
+!/devrc
+!/setup.sh
+!/home/
+!/misc/
