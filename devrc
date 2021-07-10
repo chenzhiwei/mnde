@@ -12,7 +12,9 @@ function append_path() {
 }
 
 for item in $(ls -d $ROOT_PATH/*/); do
-    append_path "${item}bin"
+    name=$(basename $item)
+    [[ $name =~ (^home$|^misc$) ]] && continue
+    append_path "$ROOT_PATH/$name/bin"
 done
 
 export GOROOT=$HOME/.dev-tools/go
