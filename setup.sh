@@ -35,5 +35,5 @@ function golang_install() {
     rm -rf go && mv /tmp/go go
 }
 
-node_install
-golang_install
+[[ -d node ]] ||  node_install
+[[ -d go ]] || golang_install
