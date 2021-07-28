@@ -101,11 +101,13 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+	"language": "en-US",
     "launchMode": "maximized",
     "profiles":
     {
         "defaults":
         {
+			"closeOnExit": "always",
             "bellStyle": "visual",
             "colorScheme": "Ubuntu",
             "cursorShape": "filledBox"
@@ -372,5 +374,5 @@
             "yellow": "#808000"
         }
     ],
-    "wordDelimiters": " /\\()\"'-,:;<>~!@#$%^&*|+=[]{}~?\u2502"
+    "wordDelimiters": " \\()\"'-,:;<>~!@#$%^&*|+=[]{}~?\u2502"
 }
