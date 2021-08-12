@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 
 cd $ROOT_PATH
