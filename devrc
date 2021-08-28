@@ -19,7 +19,6 @@ done
 
 export GOROOT=$HOME/.dev-tools/go
 export GOPATH=$HOME/dev/go
-export CGO_ENABLED=0
 
 append_path "$GOROOT/bin"
 append_path "$GOPATH/bin"
