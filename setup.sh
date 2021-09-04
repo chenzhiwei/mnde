@@ -20,7 +20,7 @@ function dot_files() {
 
 ## NodeJS
 function node_install() {
-    VERSION=$(curl -s https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1;exit}')
+    VERSION=$(curl -s https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1}' | tail -n1)
     URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
 
     curl -kL $URL | tar -xJ -C /tmp/
