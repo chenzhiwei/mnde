@@ -4,19 +4,8 @@ set -euo pipefail
 
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 
-cd $ROOT_PATH
-
-## Copy home directory files
-function dot_files() {
-    cp -r $ROOT_PATH/home/. $HOME/
-
-    if ! type curl &>/dev/null; then
-        echo
-        echo "this script requires curl to work properly"
-        echo
-        exit 1
-    fi
-}
+mkdir -p $ROOT_PATH/zoo
+cd $ROOT_PATH/zoo
 
 ## NodeJS
 function node_install() {
@@ -39,6 +28,5 @@ function golang_install() {
     rm -rf go && mv /tmp/go go
 }
 
-# dot_files
 [[ -d node ]] ||  node_install
 [[ -d go ]] || golang_install

@@ -1,0 +1,21 @@
+## Override PATH
+PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin
+
+ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
+ZOO_PATH="$ROOT_PATH/zoo"
+
+for item in $(ls $ZOO_PATH); do
+    PATH="$PATH:$ZOO_PATH/$item/bin"
+done
+
+
+export GOROOT=$ZOO_PATH/go
+export GOPATH=$HOME/dev/go
+
+export PATH="$PATH:$GOPATH/bin"
+
+# Disable Ctrl-s and Ctrl-q
+stty -ixon
+
+# Make bash in emacs mode(default in many bashes)
+# set -o emacs

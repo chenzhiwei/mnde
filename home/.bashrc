@@ -112,6 +112,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f ~/.dev-tools/devrc ]
-    . ~/.dev-tools/devrc
+if [ -f ~/.mnde/.rc ]; then
+    . ~/.mnde/.rc
 fi
