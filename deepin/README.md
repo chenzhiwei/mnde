@@ -94,6 +94,18 @@ deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main
 sudo apt install linux-image-deepin-stable-amd64 linux-headers-deepin-stable-amd64
 ```
 
+## 安装Debian Backports
+
+```
+/etc/apt/sources.list.d/debian-backports.list
+
+deb http://deb.debian.org/debian buster-backports main
+
+apt install vim/buster-backports
+# or
+apt install -t buster-backports vim
+```
+
 ## 安装第三方内核
 
 ```
