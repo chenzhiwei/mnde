@@ -80,7 +80,21 @@ plymouth-set-default-theme deepin-hidpi-ssd-logo -R
 timedatectl set-local-rtc 1
 ```
 
-## 安装新内核
+## 安装最新软件
+
+```
+/etc/apt/sources.list.d/deepin-beta.list
+
+deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free
+```
+
+## 安装最新内核
+
+```
+sudo apt install linux-image-deepin-stable-amd64 linux-headers-deepin-stable-amd64
+```
+
+## 安装第三方内核
 
 ```
 sudo echo 'deb http://deb.xanmod.org releases main' > /etc/apt/sources.list.d/xanmod-kernel.list
