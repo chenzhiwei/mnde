@@ -1,5 +1,5 @@
 ## Override PATH
-PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin
+PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 ROOT_PATH=$(cd $(dirname ${BASH_SOURCE}) && pwd -P)
 ZOO_PATH="$ROOT_PATH/zoo"
