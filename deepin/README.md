@@ -1,5 +1,12 @@
 # Deepin Customizations
 
+## 安装软件
+
+```
+sudo apt update
+sudo apt install bash-completion git nftables fcitx-rime console-setup flatpak
+```
+
 ## 修改窗口圆角大小
 
 1. 控制中心 - 个性化- 圆角窗口
@@ -59,8 +66,11 @@ sudo flatpak remote-modify --no-follow-redirect --url=https://mirror.sjtu.edu.cn
 
 # restart system
 
-flatpak install com.github.unrud.VideoDownloader org.gtk.Gtk3theme.deepin org.gtk.Gtk3theme.deepin-dark \
-    org.mozilla.firefox org.supertuxproject.SuperTux org.telegram.desktop us.zoom.Zoom
+flatpak install org.gtk.Gtk3theme.deepin org.gtk.Gtk3theme.deepin-dark \
+    org.telegram.desktop us.zoom.Zoom \
+    com.slack.Slack org.kde.haruna \
+    org.mozilla.firefox com.github.unrud.VideoDownloader \
+    org.supertuxproject.SuperTux net.minetest.Minetest
 ```
 
 `--no-follow-redirect` 表示将此 URL 持久化下来，否则这个 URL 会在更新后被重置回默认值。低版本没有这个参数，需要手动添加`url-is-set=true`到文件`/var/lib/flatpak/repo/config`。
@@ -74,8 +84,6 @@ plymouth-set-default-theme deepin-hidpi-ssd-logo -R
 
 ## 双系统时 Windows 慢8小时
 
-在 Debian 系的系统里执行如下命令。
-
 ```
 timedatectl set-local-rtc 1
 ```
@@ -83,37 +91,26 @@ timedatectl set-local-rtc 1
 ## 安装最新软件
 
 ```
-/etc/apt/sources.list.d/deepin-beta.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 243A16C859595D31
 
-deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free
-```
+vim /etc/apt/sources.list.d/deepin-beta.list
 
-## 安装最新内核
+    deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free
 
-```
+sudo apt update
 sudo apt install linux-image-deepin-stable-amd64 linux-headers-deepin-stable-amd64
 ```
 
 ## 安装Debian Backports
 
 ```
-/etc/apt/sources.list.d/debian-backports.list
+vim /etc/apt/sources.list.d/debian-backports.list
 
-deb http://deb.debian.org/debian buster-backports main
+    deb http://deb.debian.org/debian buster-backports main
 
 apt install vim/buster-backports
 # or
 apt install -t buster-backports vim
-```
-
-## 安装第三方内核
-
-```
-sudo echo 'deb http://deb.xanmod.org releases main' > /etc/apt/sources.list.d/xanmod-kernel.list
-wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
-
-sudo apt update
-sudo apt install linux-xanmod
 ```
 
 ## 在容器里编译软件
