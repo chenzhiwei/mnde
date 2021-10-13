@@ -4,6 +4,19 @@
 
 最近发现 Windows 里的 WSL2 Ubuntu 和 Windows Terminal 配合使用很赞。
 
+## 命令行工具
+
+```
+# 查看监听端口
+Get-NetTCPConnection -State Listen
+netstat -ano | findstr "LISTENING"
+
+# 查看进程信息
+Get-Process -Id 12144
+
+# 查看网卡信息
+Get-NetIPAddress
+```
 
 ## 删除多余的图标
 
