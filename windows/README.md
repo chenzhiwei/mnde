@@ -4,6 +4,23 @@
 
 最近发现 Windows 里的 WSL2 Ubuntu 和 Windows Terminal 配合使用很赞。
 
+## 给PowerShell设置profile
+
+```
+# Check all the profiles
+$PROFILE | Get-Member -Type NoteProperty
+
+# Create the profile file
+New-Item -ItemType File -Path $PROFILE -Force
+
+# Edit the profile
+notepad $PROFILE
+> Set-PSReadLineOption -EditMode Emacs
+
+# Allow executing profile script
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
 ## 命令行工具
 
 ```
