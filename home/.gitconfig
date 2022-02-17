@@ -1,6 +1,6 @@
 [user]
     name    = Chen Zhiwei
-    email   = zhiweik@gmail.com
+    email   = zhiwei@youya.org
 [core]
     editor  = vim
     pager   = less -x1,5
