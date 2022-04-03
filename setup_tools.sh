@@ -9,7 +9,7 @@ cd $ROOT_PATH/zoo
 
 ## NodeJS
 function node_install() {
-    VERSION=$(curl -s https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1}' | tail -n1)
+    VERSION=$(curl -sL https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1}' | tail -n1)
     URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
 
     curl -kL $URL | tar -xJ -C /tmp/
@@ -20,7 +20,7 @@ function node_install() {
 function golang_install() {
     ARCH=$(uname -m|sed 's/x86_64/amd64/g')
     KERNAL=$(uname -s|tr '[:upper:]' '[:lower:]')
-    VERSION=$(curl -s https://go.dev/VERSION?m=text)
+    VERSION=$(curl -sL https://go.dev/VERSION?m=text)
     URL=https://dl.google.com/go/${VERSION}.${KERNAL}-${ARCH}.tar.gz
 
     curl -kL $URL | tar -xz -C /tmp/
