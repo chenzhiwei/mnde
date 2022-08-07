@@ -9,7 +9,11 @@ cd $ROOT_PATH/zoo
 
 ## NodeJS
 function node_install() {
-    VERSION=$(curl -sL https://nodejs.org/dist/index.tab | awk '/Fermium/{print $1}' | tail -n1)
+    VERSION=$(curl -sL https://nodejs.org/dist/index.tab | awk 'NR==2 {print $1}')
+    if [[ "$VERSION" == "" ]]; then
+        echo "failed to get node version"
+        exit 1
+    fi
     URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
 
     curl -kL $URL | tar -xJ -C /tmp/
