@@ -1,48 +1,10 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    // Add custom actions and keybindings to this array.
-    // To unbind a key combination from your defaults.json, set the command to "unbound".
-    // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
-    "actions":
+    "actions": 
     [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
         {
-            "command":
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+shift+v"
-        },
-        // Press Ctrl+Shift+F to open the search box
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 0
-            },
-            "keys": "alt+1"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 1
-            },
-            "keys": "alt+2"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 2
@@ -50,15 +12,64 @@
             "keys": "alt+3"
         },
         {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "keys": "alt+4"
+            "command": "unbound",
+            "keys": "ctrl+c"
         },
         {
-            "command":
+            "command": "unbound",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+3"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+4"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+5"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+6"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+7"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+8"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+9"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 4
@@ -66,7 +77,31 @@
             "keys": "alt+5"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 0
+            },
+            "keys": "alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 1
+            },
+            "keys": "alt+2"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
+        },
+        {
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 5
@@ -74,7 +109,7 @@
             "keys": "alt+6"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 6
@@ -82,7 +117,7 @@
             "keys": "alt+7"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 7
@@ -90,10 +125,10 @@
             "keys": "alt+8"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
-                "index": 8
+                "index": 4294967295
             },
             "keys": "alt+9"
         }
@@ -101,37 +136,34 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-	"language": "en-US",
+    "language": "en-US",
     "launchMode": "maximized",
-    "profiles":
+    "profiles": 
     {
-        "defaults":
-        {
-			"closeOnExit": "always",
-            "bellStyle": "visual",
+        "defaults": {
+            "closeOnExit": "always",
             "colorScheme": "Ubuntu",
             "cursorShape": "filledBox"
         },
-        "list":
+        "list": 
         [
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\zhiwei"
-            },
-            {
-                "commandline": "powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": true,
                 "name": "Command Prompt"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -141,12 +173,12 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
-            "background": "#4D1039",
+            "background": "#0C0C0C",
             "black": "#0C0C0C",
-            "blue": "#2E64A6",
+            "blue": "#0037DA",
             "brightBlack": "#767676",
             "brightBlue": "#3B78FF",
             "brightCyan": "#61D6D6",
@@ -373,6 +405,5 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ],
-    "wordDelimiters": " \\()\"',:;<>~!@#$%^&*|+=[]{}~?\u2502"
+    ]
 }
