@@ -13,9 +13,8 @@ $PROFILE | Get-Member -Type NoteProperty
 # Create the profile file
 New-Item -ItemType File -Path $PROFILE -Force
 
-# Edit the profile
-notepad $PROFILE
-> Set-PSReadLineOption -EditMode Emacs
+# Use Emacs shortcuts
+Set-PSReadlineOption -EditMode Emacs
 
 # Allow executing profile script
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
