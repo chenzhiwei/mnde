@@ -14,6 +14,7 @@ $PROFILE | Get-Member -Type NoteProperty
 New-Item -ItemType File -Path $PROFILE -Force
 
 # Use Emacs shortcuts
+notepad $PROFILE
 Set-PSReadlineOption -EditMode Emacs
 
 # Allow executing profile script
@@ -33,6 +34,13 @@ Get-Process -Id 12144
 # 查看网卡信息
 Get-NetIPAddress
 ```
+
+## 重装 Windows 和 Office
+
+https://www.microsoft.com/zh-cn/software-download/windows11
+
+1. 打开 https://account.microsoft.com/
+2. 在『服务与订阅』页面查找已经购买的 Office 产品，然后下载安装
 
 ## 删除多余的图标
 
