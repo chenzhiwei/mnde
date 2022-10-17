@@ -10,6 +10,7 @@ end)
 return {
   color_scheme = "Ubuntu",
   warn_about_missing_glyphs = false,
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   keys = {
     {key = '1', mods = 'ALT', action = act.ActivateTab(0)},
     {key = '2', mods = 'ALT', action = act.ActivateTab(1)},
