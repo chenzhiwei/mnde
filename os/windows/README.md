@@ -21,6 +21,15 @@ Set-PSReadlineOption -EditMode Emacs
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
+## 缩小WSL空间占用
+
+```
+wsl --shutdown
+diskpart
+select vdisk file="C:\Users\chenz\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\ext4.vhdx"
+compact vdisk
+```
+
 ## 命令行工具
 
 ```
