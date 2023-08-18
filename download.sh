@@ -24,8 +24,8 @@ function node_install() {
 function golang_install() {
     ARCH=$(uname -m|sed 's/x86_64/amd64/g')
     KERNAL=$(uname -s|tr '[:upper:]' '[:lower:]')
-    VERSION=$(curl -sL https://go.dev/VERSION?m=text)
-    URL=https://dl.google.com/go/${VERSION}.${KERNAL}-${ARCH}.tar.gz
+    VERSION=$(curl -sL https://go.dev/VERSION?m=text|head -1)
+    URL=https://go.dev/dl/${VERSION}.${KERNAL}-${ARCH}.tar.gz
 
     curl -kL $URL | tar -xz -C /tmp/
 
