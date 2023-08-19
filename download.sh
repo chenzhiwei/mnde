@@ -14,7 +14,8 @@ function node_install() {
         echo "failed to get node version"
         exit 1
     fi
-    URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
+    # URL=https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
+    URL=https://mirrors.aliyun.com/nodejs-release/$VERSION/node-$VERSION-linux-x64.tar.xz
 
     curl -kL $URL | tar -xJ -C /tmp/
     rm -rf node && mv /tmp/node-$VERSION-linux-x64 node
@@ -25,7 +26,8 @@ function golang_install() {
     ARCH=$(uname -m|sed 's/x86_64/amd64/g')
     KERNAL=$(uname -s|tr '[:upper:]' '[:lower:]')
     VERSION=$(curl -sL https://go.dev/VERSION?m=text|head -1)
-    URL=https://go.dev/dl/${VERSION}.${KERNAL}-${ARCH}.tar.gz
+    # URL=https://go.dev/dl/${VERSION}.${KERNAL}-${ARCH}.tar.gz
+    URL=https://mirrors.aliyun.com/golang/${VERSION}.${KERNAL}-${ARCH}.tar.gz
 
     curl -kL $URL | tar -xz -C /tmp/
 
