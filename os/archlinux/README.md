@@ -9,11 +9,11 @@ pacman -S git
 # Remove Package
 pacman -Rs git
 
-# Show Package
+# Show Installed Package Info
 pacman -Qi git
 
 # List Installed Packages
-pacman -Qs
+pacman -Q
 
 # Query File
 pacman -Qo /etc/default/useradd
@@ -23,6 +23,10 @@ pacman -Ql git
 
 # Search Package
 pacman -Ss git
+pacman -Sl | grep git
+
+# Show pkg info
+pacman -Si git
 
 # apt update
 pacman -Sy
