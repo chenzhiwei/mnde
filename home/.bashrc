@@ -103,6 +103,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f ~/.mnde/.rc ]; then
-    . ~/.mnde/.rc
+if [ -f ~/.mnde/zoo.env ]; then
+    . ~/.mnde/zoo.env
 fi
