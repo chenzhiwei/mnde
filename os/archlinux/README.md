@@ -44,6 +44,8 @@ balooctl purge
 
 ## Konsole ctrl+l behavior
 
+Refer: https://www.reddit.com/r/bash/comments/zg069a/reset_terminal_but_keep_scrollback_buffer/
+
 Do not clear scrollbuffer, just push to top.
 
 ```
