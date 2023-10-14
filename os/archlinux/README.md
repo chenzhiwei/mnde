@@ -35,11 +35,20 @@ pacman -Sy
 pacman -Syu
 ```
 
+## Systemd-boot
+
+```
+bootctl list
+bootctl set-default auto-windows
+```
+
 ## Disable Baloo
 
 ```
 balooctl disable
 balooctl purge
+
+System Settings -> Search -> uncheck Enable File Search
 ```
 
 ## Konsole ctrl+l behavior
