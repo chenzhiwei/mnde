@@ -1,5 +1,15 @@
 # Wezterm
 
+## Initialize
+
+Add following to `.bashrc` for opening new tab from current working directory.
+
+```
+if [ -f ~/.config/wezterm/shell-integration.sh ]; then
+    . ~/.config/wezterm/shell-integration.sh
+fi
+```
+
 ## Shortcuts
 
 * CTRL+SHIFT + F: CaseSensitive Search
