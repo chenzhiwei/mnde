@@ -17,6 +17,13 @@ config.color_scheme = "Ubuntu"
 
 config.colors = {
   scrollbar_thumb = '#666',
+  tab_bar = {
+    active_tab = {
+      bg_color = '#300a24',
+      fg_color = '#c0c0c0',
+    },
+    inactive_tab_edge = '#300a24',
+  },
 }
 
 -- use builtin window decoration
