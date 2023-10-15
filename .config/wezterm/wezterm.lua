@@ -60,6 +60,6 @@ config.harfbuzz_features = {'calt=0', 'clig=0', 'liga=0'}
 config.warn_about_missing_glyphs = false
 config.scrollback_lines = 8000
 config.mouse_wheel_scrolls_tabs = false
-config.selection_word_boundary = ' \t\n{}[]()"\'`,;:='
+config.selection_word_boundary = ' \t\n{}[]()"\'`,;:=$'
 
 return config
