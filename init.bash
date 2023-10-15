@@ -45,4 +45,5 @@ function bash::scrollback() {
     echo -n $'\e['"${scroll_rows}S" >/dev/tty # Scroll the terminal
     echo -n $'\e['"${scroll_rows}A" >/dev/tty # Move the cursor back up
 }
-bind -x '"\C-l": bash::scrollback'
+# Do not bind Ctrl+L in Windowns Terminal
+[[ -z ${WT_SESSION+x} ]] && bind -x '"\C-l": bash::scrollback'
