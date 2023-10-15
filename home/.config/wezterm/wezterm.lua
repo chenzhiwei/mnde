@@ -4,25 +4,25 @@ local config = wezterm.config_builder()
 
 -- open wezterm in maximize mode
 local mux = wezterm.mux
-wezterm.on("gui-startup", function(cmd)
+wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
 
 -- WSL Settings
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-  config.default_domain = "WSL:Ubuntu"
+  config.default_domain = 'WSL:Ubuntu'
 end
 config.wsl_domains = {
   {
-    name = "WSL:Ubuntu",
-    distribution = "Ubuntu",
-    default_cwd = "~",
+    name = 'WSL:Ubuntu',
+    distribution = 'Ubuntu',
+    default_cwd = '~',
   },
 }
 -- WSL Settings end
 
-config.color_scheme = "Ubuntu"
+config.color_scheme = 'Ubuntu'
 
 config.colors = {
   scrollbar_thumb = '#666',
@@ -37,9 +37,9 @@ config.colors = {
 
 -- use builtin window decoration
 config.enable_scroll_bar = true
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.integrated_title_button_style = "Windows"
-config.integrated_title_buttons = { 'Hide', 'Maximize', 'Close' }
+config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
+config.integrated_title_button_style = 'Windows'
+config.integrated_title_buttons = {'Hide', 'Maximize', 'Close'}
 
 -- quick keys
 config.keys = {
@@ -60,6 +60,6 @@ config.harfbuzz_features = {'calt=0', 'clig=0', 'liga=0'}
 config.warn_about_missing_glyphs = false
 config.scrollback_lines = 8000
 config.mouse_wheel_scrolls_tabs = false
-config.selection_word_boundary = " \t\n{}[]()\"'`,;:"
+config.selection_word_boundary = ' \t\n{}[]()"\'`,;:='
 
 return config
