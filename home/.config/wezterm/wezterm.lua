@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
-local config = {}
+local config = wezterm.config_builder()
 
 -- open wezterm in maximize mode
 local mux = wezterm.mux
@@ -9,9 +9,18 @@ wezterm.on("gui-startup", function(cmd)
   window:gui_window():maximize()
 end)
 
-if wezterm.config_builder then
-  config = wezterm.config_builder()
+-- WSL Settings
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  config.default_domain = "WSL:Ubuntu"
 end
+config.wsl_domains = {
+  {
+    name = "WSL:Ubuntu",
+    distribution = "Ubuntu",
+    default_cwd = "~",
+  },
+}
+-- WSL Settings end
 
 config.color_scheme = "Ubuntu"
 
@@ -45,7 +54,7 @@ config.keys = {
   {key = '9', mods = 'ALT', action = act.ActivateTab(-1)},
 }
 
--- disable merged non-equeal signs
+-- disable ligatures
 config.harfbuzz_features = {'calt=0', 'clig=0', 'liga=0'}
 -- disable font warning
 config.warn_about_missing_glyphs = false
