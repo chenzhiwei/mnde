@@ -103,6 +103,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/.config/wezterm/shell-integration.sh ]; then
+    . ~/.config/wezterm/shell-integration.sh
+fi
+
 if [ -f ~/.mnde/zoo.env ]; then
     . ~/.mnde/zoo.env
 fi
