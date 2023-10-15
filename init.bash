@@ -31,6 +31,7 @@ if [[ -r "$ROOT_PATH/.config/wezterm/shell-integration.sh" ]]; then
 fi
 
 ## Reserve all scrollback buffer
+# https://github.com/bew/dotfiles/commit/eeb5e5a676d3d0115608488989672ea91ff47432
 function bash::scrollback() {
     # Get Current Cursor Position Rows
     local CURPOS
