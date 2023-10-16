@@ -54,6 +54,28 @@ config.keys = {
   {key = '9', mods = 'ALT', action = act.ActivateTab(-1)},
 }
 
+-- ctrl-click to open links
+config.mouse_bindings = {
+  -- Click to select text
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = act.CompleteSelection 'ClipboardAndPrimarySelection',
+  },
+  -- CTRL-Click to open links
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.OpenLinkAtMouseCursor,
+  },
+  -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.Nop,
+  },
+}
+
 -- disable ligatures
 config.harfbuzz_features = {'calt=0', 'clig=0', 'liga=0'}
 -- disable font warning
