@@ -2,4 +2,7 @@
 /node
 /tinygo
 /utils
-/.config/vim/
+/.config/vim/bundle
+/.config/vim/coc-data
+/.config/vim/.netrwhist
+/.config/vim/.viminfo
