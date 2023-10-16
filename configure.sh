@@ -64,7 +64,7 @@ function node_install() {
         echo "Node already installed"
         return
     fi
-    local version curl
+    local version url
     if [[ $MIRROR == "true" ]]; then
         version=$(curl -sL https://mirrors.aliyun.com/nodejs-release/index.tab | awk 'NR==2 {print $1}')
         url=https://mirrors.aliyun.com/nodejs-release/$version/node-$version-linux-x64.tar.xz
