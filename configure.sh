@@ -17,7 +17,7 @@ function make_symlink() {
     ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
     if [[ $MIRROR == "true" ]]; then
         ln -sf -t . .mnde/.npmrc
-        ln -sf -t .config ../.mnde/.config/go,pip
+        ln -sf -t .config ../.mnde/.config/{go,pip}
     fi
 }
 
