@@ -42,10 +42,6 @@ function go_install() {
     local arch kernel version url
     arch=$(uname -m|sed 's/x86_64/amd64/g')
     kernel=$(uname -s|tr '[:upper:]' '[:lower:]')
-    if [[ "$version" == "" ]]; then
-        echo "failed to get go version"
-        exit 1
-    fi
     if [[ $MIRROR == "true" ]]; then
         version=$(curl -sL https://golang.google.cn/VERSION?m=text|head -1)
         url=https://golang.google.cn/dl/$version.$kernel-$arch.tar.gz
