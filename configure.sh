@@ -10,6 +10,7 @@ ROOT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 function make_symlink() {
     cd ~
     mkdir -p .ssh .config .local/share/flatpak/overrides
+    ln -nsf .mnde/.config/vim .vim
     ln -sf -t . .mnde/{.npmrc,.screenrc}
     ln -sf -t .ssh ../.mnde/.ssh/config
     ln -sf -t .config ../.mnde/.config/{git,go,pip,wezterm}
