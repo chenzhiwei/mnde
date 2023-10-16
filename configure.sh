@@ -11,10 +11,14 @@ function make_symlink() {
     cd ~
     mkdir -p .ssh .config .local/share/flatpak/overrides
     ln -nsf .mnde/.config/vim .vim
-    ln -sf -t . .mnde/{.npmrc,.screenrc}
+    ln -sf -t . .mnde/.screenrc
     ln -sf -t .ssh ../.mnde/.ssh/config
-    ln -sf -t .config ../.mnde/.config/{git,go,pip,wezterm}
+    ln -sf -t .config ../.mnde/.config/{git,wezterm}
     ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
+    if [[ $MIRROR == "true" ]]; then
+        ln -sf -t . .mnde/.npmrc
+        ln -sf -t .config ../.mnde/.config/go,pip
+    fi
 }
 
 ## Append ~/.bashrc
