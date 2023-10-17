@@ -14,7 +14,7 @@
 [alias]
     st  = status
     last = log -1 HEAD
-    unstage = reset HEAD --
+    unstage = restore --staged
     history = log -p --
 [pull]
 	ff = only
