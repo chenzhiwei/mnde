@@ -92,6 +92,10 @@ cnoreabbrev W <C-r>=(getcmdtype()==':'? 'w' : 'W')<CR>
 cnoreabbrev Wq <C-r>=(getcmdtype()==':'? 'wq' : 'Wq')<CR>
 cnoreabbrev WQ <C-r>=(getcmdtype()==':'? 'wq' : 'WQ')<CR>
 
+"Open terminal at bottom and map `grep`
+cabbrev term botright term
+cabbrev grep botright term grep --color -r
+
 "Map VIM command/insert mode shortcut to bash shortcut
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
