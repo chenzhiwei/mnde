@@ -159,7 +159,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 set tagfunc=CocTagFunc
-let g:coc_data_home = '~/.vim/coc-data'
+let g:coc_data_home = '~/.local/share/coc'
 let g:coc_global_extensions = [
     \'coc-json',
     \'coc-yaml',
