@@ -35,6 +35,7 @@ vim +PlugInstall +qall
 * `:tn` switch to next defination/declaration.
 * `:tp` switch to previous defination/declaration.
 * `g]` switch between multiple tags.
+* `:term` to open terminal, `ctrl-w N` to put terminal into normal mode(jkhl to move cursor)
 
 ## Settings
 
@@ -53,11 +54,11 @@ vim -V9myVim.log filename
 ```
 apt install build-essential libncurses-dev libncurses5-dev python3-dev --no-install-recommends
 
-git clone https://github.com/vim/vim.git
+git clone --depth=1 https://github.com/vim/vim.git
 cd vim
 
 ./configure --prefix=/usr/local/vim --enable-python3interp=yes --with-features=huge
-make VIMRUNTIMEDIR=/usr/local/vim/share/vim/vim82
+make VIMRUNTIMEDIR=/usr/local/vim/share/vim/vim9
 make install
 /usr/local/vim/bin/vim --version
 ```
