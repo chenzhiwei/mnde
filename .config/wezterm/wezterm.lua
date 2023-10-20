@@ -54,6 +54,15 @@ config.keys = {
   {key = '9', mods = 'ALT', action = act.ActivateTab(-1)},
 }
 
+-- CTRL+ALT + number to move to that position
+for i = 1, 8 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = wezterm.action.MoveTab(i - 1),
+  })
+end
+
 -- ctrl-click to open links
 config.mouse_bindings = {
   -- Click to select text
