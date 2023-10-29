@@ -9,7 +9,7 @@ ROOT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 ## Symlink the config
 function make_symlink() {
     cd ~
-    mkdir -p .ssh .config .local/share/flatpak/overrides
+    mkdir -p .ssh .config
     ln -nsf .mnde/.config/vim .vim
     ln -sf -t . .mnde/.screenrc
     ln -sf -t .ssh ../.mnde/.ssh/config
@@ -21,8 +21,10 @@ function make_symlink() {
 
     # ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
     # seems flatpak does not use symlink
-    flatpak override --user --unset-env=QT_IM_MODULE
-    flatpak override --user --filesystem=xdg-config/fontconfig:ro
+    if type flatpak &>/dev/null; then
+        flatpak override --user --unset-env=QT_IM_MODULE
+        flatpak override --user --filesystem=xdg-config/fontconfig:ro
+    fi
 }
 
 ## Append ~/.bashrc
