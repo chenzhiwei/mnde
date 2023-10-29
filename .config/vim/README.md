@@ -1,27 +1,5 @@
 # The Vim Configuration
 
-## Install Node
-
-This vim configuration depends on node, so you need to install it first.
-
-```
-VERSION=$(curl -sL https://nodejs.org/dist/index.tab | awk 'NR==2 {print $1}')
-curl -LO https://nodejs.org/dist/$VERSION/node-$VERSION-linux-x64.tar.xz
-tar xf node-$VERSION-linux-x64.tar.xz
-```
-
-## Setup
-
-```
-rm -f ~/.vimrc
-
-go install golang.org/x/tools/gopls@latest
-
-git clone https://github.com/chenzhiwei/vim ~/.vim
-
-vim +PlugInstall +qall
-```
-
 ## Commands
 
 * Ctr + o Jump to previous visited locations
@@ -36,6 +14,14 @@ vim +PlugInstall +qall
 * `:tp` switch to previous defination/declaration.
 * `g]` switch between multiple tags.
 * `:term` to open terminal, `ctrl-w N` to put terminal into normal mode(jkhl to move cursor)
+
+## Operations
+
+* `:g/pattern/d` remove matched `pattern` globally
+* `:1,50/pattern/d` remove matched `pattern` between line 1 and 50
+* `:v/pattern/d` remove unmatched `pattern` globally
+* `:g!/pattern/d` remove unmatched `pattern` globally
+* `:%s/string/replace/g` replace the string
 
 ## Settings
 
