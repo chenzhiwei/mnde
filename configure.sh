@@ -14,11 +14,15 @@ function make_symlink() {
     ln -sf -t . .mnde/.screenrc
     ln -sf -t .ssh ../.mnde/.ssh/config
     ln -sf -t .config ../.mnde/.config/{git,wezterm}
-    ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
     if [[ $MIRROR == "true" ]]; then
         ln -sf -t . .mnde/.npmrc
         ln -sf -t .config ../.mnde/.config/{go,pip}
     fi
+
+    # ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
+    # seems flatpak does not use symlink
+    flatpak override --user --unset-env=QT_IM_MODULE
+    flatpak override --user --filesystem=xdg-config/fontconfig:ro
 }
 
 ## Append ~/.bashrc
