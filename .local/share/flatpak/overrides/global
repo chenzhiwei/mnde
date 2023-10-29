@@ -1,2 +1,6 @@
 [Context]
 filesystems=xdg-config/fontconfig:ro;
+unset-environment=QT_IM_MODULE;
+
+[Environment]
+QT_IM_MODULE=
