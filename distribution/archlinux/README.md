@@ -6,6 +6,9 @@
 # Install Package
 pacman -S git
 
+# Install Local Package
+pacman -U warp.pkg.tar.zst
+
 # Remove Package
 pacman -Rs git
 
