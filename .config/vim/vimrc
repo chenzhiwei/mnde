@@ -73,11 +73,11 @@ match ErrorMsg '\s\+$'
 highlight Search ctermfg=DarkBlue
 highlight Visual ctermfg=White ctermbg=LightBlue
 highlight CocListLine ctermbg=Gray
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
-highlight MatchParen cterm=bold ctermfg=17 ctermbg=yellow gui=none guifg=bg guibg=Red
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88
+highlight MatchParen cterm=bold ctermfg=12 ctermbg=yellow
 "highlight Comment ctermfg=Blue
 
 "Don't like q:
@@ -135,14 +135,13 @@ endif
 
 "FileType
 autocmd FileType go setlocal noexpandtab
-autocmd FileType html,javascript,css,json,jsonc,lua,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,css,javascript,json,jsonc,lua,xml,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "vim-plug setting
 fun! VimPlug()
     call plug#begin('~/.vim/bundle')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
-        Plug 'preservim/vim-markdown'
         Plug 'vim-airline/vim-airline'
     call plug#end()
 endfun
