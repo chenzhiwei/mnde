@@ -4,12 +4,8 @@
     "actions":
     [
         {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 4
-            },
-            "keys": "alt+5"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "unbound",
@@ -59,38 +55,9 @@
             "command":
             {
                 "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "alt+8"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
                 "index": 0
             },
             "keys": "alt+1"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "keys": "alt+3"
-        },
-        {
-            "command":
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
         },
         {
             "command":
@@ -104,6 +71,14 @@
             "command":
             {
                 "action": "switchToTab",
+                "index": 2
+            },
+            "keys": "alt+3"
+        },
+        {
+            "command":
+            {
+                "action": "switchToTab",
                 "index": 3
             },
             "keys": "alt+4"
@@ -112,9 +87,9 @@
             "command":
             {
                 "action": "switchToTab",
-                "index": 6
+                "index": 4
             },
-            "keys": "alt+7"
+            "keys": "alt+5"
         },
         {
             "command":
@@ -128,9 +103,34 @@
             "command":
             {
                 "action": "switchToTab",
+                "index": 6
+            },
+            "keys": "alt+7"
+        },
+        {
+            "command":
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "alt+8"
+        },
+        {
+            "command":
+            {
+                "action": "switchToTab",
                 "index": 4294967295
             },
             "keys": "alt+9"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
         }
     ],
     "copyFormatting": "none",
@@ -155,12 +155,6 @@
         "list":
         [
             {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
                 "commandline": "C:\\Windows\\system32\\wsl.exe -d Debian",
                 "guid": "{51da0062-c560-4022-b101-0574f78bfcc7}",
                 "hidden": false,
@@ -174,6 +168,12 @@
                 "icon": "https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
