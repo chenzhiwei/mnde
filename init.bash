@@ -3,6 +3,9 @@
 ## Override PATH
 PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+## Command Alias
+alias dig="dig +https @223.5.5.5"
+
 ROOT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 
 ## Frequent Used Items
