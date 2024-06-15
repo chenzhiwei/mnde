@@ -6,3 +6,4 @@
 /.config/vim/bundle
 /.config/vim/.netrwhist
 /.config/vim/.viminfo
+/.config/go/telemetry/
