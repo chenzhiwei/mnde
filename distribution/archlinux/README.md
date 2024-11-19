@@ -53,3 +53,10 @@ balooctl purge
 
 System Settings -> Search -> uncheck Enable File Search
 ```
+
+## 24 Hour format date
+
+```
+vim /etc/locale.conf
+LC_TIME=C.UFT-8
+```

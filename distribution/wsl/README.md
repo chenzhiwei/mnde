@@ -33,3 +33,10 @@ create file `%UserProfile%\.wslconfig`, which is the Windows Home directory.
 [wsl2]
 kernelCommandLine = cgroup_no_v1=all
 ```
+
+## 24 Hour date format
+
+```
+vim /etc/default/locale
+LC_TIME=C.UFT-8
+```
