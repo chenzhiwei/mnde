@@ -1,46 +1,36 @@
 #!/usr/bin/bash
 # shellcheck shell=bash
 
-set -eux -o pipefail
+set -eu -o pipefail
 
 MIRROR=${MIRROR:-true}
 ROOT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 
-## Symlink the config
-function make_symlink() {
-    cd ~
-    mkdir -p .ssh .config
-    ln -nsf .mnde/.config/vim .vim
-    ln -sf -t . .mnde/.screenrc
-    ln -sf -t .ssh ../.mnde/.ssh/config
-    ln -sf -t .config ../.mnde/.config/{git,wezterm}
-    if [[ $MIRROR == "true" ]]; then
-        ln -sf -t . .mnde/.npmrc
-        ln -sf -t .config ../.mnde/.config/{go,pip}
-    fi
+param=${1:-unknown}
 
-    # ln -sf -t .local/share/flatpak/overrides ../../../../.mnde/.local/share/flatpak/overrides/global
-    # seems flatpak does not use symlink
+## Make config
+function make_config() {
+    mkdir -p ~/{.ssh,.vim,.local,.config}
+    \cp -r .ssh/*       ~/.ssh/
+    \cp -r .vim/*       ~/.vim/
+    \cp -r .local/*     ~/.local/
+    \cp -r .config/*    ~/.config/
+    \cp .npmrc .screenrc ~/
+
     if type flatpak &>/dev/null; then
         flatpak override --user --unset-env=QT_IM_MODULE
         flatpak override --user --filesystem=xdg-config/fontconfig:ro
     fi
-}
 
-## Append ~/.bashrc
-function append_bashrc() {
     if ! grep -w .mnde/init.bash ~/.bashrc &>/dev/null; then
-        cat << 'EOF' >> ~/.bashrc
-
-# mnde configuration
-[[ -r ~/.mnde/init.bash ]] && source ~/.mnde/init.bash
-
-EOF
+        echo '' >> ~/.bashrc
+        echo '# mnde configuration' >> ~/.bashrc
+        echo '[[ -r ~/.mnde/init.bash ]] && source ~/.mnde/init.bash' >> ~/.bashrc
     fi
 }
 
 ## Go installtion
-function go_install() {
+function install_go() {
     if [[ -d "$ROOT_PATH/go" ]]; then
         echo "Go already installed"
         return
@@ -61,15 +51,15 @@ function go_install() {
 }
 
 ## NodeJS installation
-function node_install() {
+function install_node() {
     if [[ -d "$ROOT_PATH/node" ]]; then
         echo "Node already installed"
         return
     fi
     local version url
     if [[ $MIRROR == "true" ]]; then
-        version=$(curl -sL https://mirrors.aliyun.com/nodejs-release/index.tab | awk 'NR==2 {print $1}')
-        url=https://mirrors.aliyun.com/nodejs-release/$version/node-$version-linux-x64.tar.xz
+        version=$(curl -sL https://mirrors.huaweicloud.com/nodejs/index.tab | awk 'NR==2 {print $1}')
+        url=https://mirrors.huaweicloud.com/nodejs/$version/node-$version-linux-x64.tar.xz
     else
         version=$(curl -sL https://nodejs.org/dist/index.tab | awk 'NR==2 {print $1}')
         url=https://nodejs.org/dist/$version/node-$version-linux-x64.tar.xz
@@ -79,8 +69,17 @@ function node_install() {
     mv "/tmp/node-$version-linux-x64" "$ROOT_PATH/node"
 }
 
-make_symlink
-append_bashrc
-
-go_install
-node_install
+case $param in
+    config)
+        make_config
+        ;;
+    go)
+        install_go
+        ;;
+    node)
+        install_node
+        ;;
+    *)
+        echo "unable to recognize command $@"
+        exit 1
+esac
