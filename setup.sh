@@ -13,12 +13,13 @@ function make_config() {
     mkdir -p ~/{.ssh,.vim,.local,.config}
     \cp -r .ssh/*       ~/.ssh/
     \cp -r .vim/*       ~/.vim/
-    \cp -r .local/*     ~/.local/
     \cp -r .config/*    ~/.config/
     \cp .npmrc .screenrc ~/
 
     if type flatpak &>/dev/null; then
         flatpak override --user --unset-env=QT_IM_MODULE
+        flatpak override --user --filesystem=xdg-data/icons:ro
+        flatpak override --user --filesystem=xdg-data/themes:ro
         flatpak override --user --filesystem=xdg-config/fontconfig:ro
     fi
 
