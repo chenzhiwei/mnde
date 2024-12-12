@@ -1,53 +1,69 @@
 # MacBook quick start
 
-We now use MacBook Pro as workstation, following are some tips.
+We now use MacBook as workstation, following are some tips to tweak macos to meet my requirements.
 
 ## Tweak Control and Command
 
+* Accessibility --> Pointer Control --> Trackpad options --> double tap to drag without lock # fuck Apple for the 0.5s delay
+* Keyboard --> Press 〇 key do nothing
+* Keyboard --> Modifier Keys... --> Control to Command and Command to Control
+* Trackpad --> Point and Click --> Tap to click
+* Trackpad --> Scroll & Zoom --> Natural Scrolling
+
+## Install Applications
+
+* Hyperswitch
+
+    Enable the `ctrl-tab` to switch programs.
+
+    https://bahoom.com/hyperswitch
+
+* Mos
+
+    Seperate the mouse scroll and touchpad scroll.
+
+    https://github.com/Caldis/Mos
+
+* Fcitx5
+
+    Better Input Method Engine for Chinese characters.
+
+    https://github.com/fcitx-contrib/fcitx5-macos
+
+    1. Input Methods --> only leave the Rime
+    1. Input Methods --> Preedit Mode --> Commit preview
+    1. Input Methods --> Share Input State --> Program
+    1. Global Config --> Hotkey --> remove all hotkeys
+    1. Global Config --> Behavior --> Active By Default --> Check
+    1. Global Config --> Behavior --> Default page size --> 6
+
+* Item2
+
+    Better terminal emulator, see the subfolder.
+
+* Podman
+
+    Better container management tool.
+
+## Install Homebrew and CLI tools
+
 ```
-Keyboard --> Modifier Keys... --> Control to Command and Command to Control
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install bash bash-completion binutils coreutils findutils gawk git git-review gnupg gnu-sed gzip kubectl nmap tree wget openssl iproute2mac
 ```
 
-## Install HyperSwitch
-
-https://bahoom.com/hyperswitch
-
-## Setup proxy
-
-Install your proxy client and connect to your server.
-
-Following is `curl` proxy, many commands like `brew` use `curl` to fetch contents.
+## Setup Bash
 
 ```
-$ export ALL_PROXY=socks5://127.0.0.1:1080
-```
-
-## Install Homebrew
-
-```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-## Install packages
-
-```
-$ brew install bash-completion binutils coreutils findutils gawk git git-review gnupg gnu-sed gzip nmap tree wget openssl iproute2mac nvm
-$ brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
-```
-
-## Install Cask packages
-
-```
-brew cask install android-platform-tools google-chrome firefox squirrel
-```
-
-## Setup ~/.bash_profile
-
-```
+echo /opt/homebrew/bin/bash >> /private/etc/shells
+chsh -s /opt/homebrew/bin/bash
 cp .bash_profile ~/
 ```
 
-## Setup Ubuntu env
+## Skills and Tips
+
+### Setup Ubuntu env
 
 Find a vagrant box from <https://vagrantcloud.com>, suppose the box is `ubuntu/trusty64`.
 
@@ -68,7 +84,7 @@ $ vagrant up
 $ vagrant ssh
 ```
 
-## Clear All DNS Servers
+### Clear All DNS Servers
 
 If you update the `/etc/resolv.conf` file or use the GUI to update your DNS servers, it will persist.
 

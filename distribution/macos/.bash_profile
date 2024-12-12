@@ -4,7 +4,7 @@ PS1='\u@\h:\w\$ '
 PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 
 ## Bash completion
-. /usr/local/etc/bash_completion
+. /opt/homebrew/etc/bash_completion
 
 ## Add trailing slash for symlinked  directory
 bind 'set mark-symlinked-directories on'
@@ -26,9 +26,8 @@ stty -ixon
 # Make bash in emacs mode, this makes Bash shortcuts working
 set -o emacs
 
-## PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/openssl/bin:$PATH:/usr/local/node-v5.9.1-darwin-x64/bin/"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+# Golang
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$HOME/.mnde/node/bin:$HOME/.mnde/go/bin:$HOME/dev/go/bin
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
