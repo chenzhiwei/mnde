@@ -31,10 +31,12 @@ We now use MacBook as workstation, following are some tips to tweak macos to mee
     https://github.com/fcitx-contrib/fcitx5-macos
 
     1. Input Methods --> only leave the Rime
-    1. Input Methods --> Preedit Mode --> Commit preview
+    1. Input Methods --> Preedit Mode --> Follow Global Config
     1. Input Methods --> Share Input State --> Program
     1. Global Config --> Hotkey --> remove all hotkeys
     1. Global Config --> Behavior --> Active By Default --> Check
+    1. Global Config --> Behavior --> Reset State on Focus in --> No
+    1. Global Config --> Behavior --> Share Input State --> Program
     1. Global Config --> Behavior --> Default page size --> 6
 
 * Item2
