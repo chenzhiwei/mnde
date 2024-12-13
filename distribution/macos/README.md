@@ -37,7 +37,6 @@ We now use MacBook as workstation, following are some tips to tweak macos to mee
     1. Global Config --> Behavior --> Active By Default --> Check
     1. Global Config --> Behavior --> Reset State on Focus in --> No
     1. Global Config --> Behavior --> Share Input State --> Program
-    1. Global Config --> Behavior --> Default page size --> 6
 
 * Item2
 
