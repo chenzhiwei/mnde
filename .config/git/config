@@ -21,7 +21,7 @@
 [push]
     default = current
 [credential]
-    helper = store
+	helper = store --file=$HOME/.config/git/credentials
 # [http]
 #    proxy = http://localhost:7980
 [init]
