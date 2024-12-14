@@ -17,12 +17,12 @@
     unstage = restore --staged
     history = log -p --
 [pull]
-	ff = only
+    ff = only
 [push]
     default = current
 [credential]
-	helper = store --file=$HOME/.config/git/credentials
+    helper = store --file=$HOME/.config/git/credentials
+[init]
+    defaultBranch = master
 # [http]
 #    proxy = http://localhost:7980
-[init]
-	defaultBranch = master
