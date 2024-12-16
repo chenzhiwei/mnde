@@ -139,7 +139,7 @@ autocmd FileType html,css,javascript,json,jsonc,lua,xml,yaml setlocal shiftwidth
 
 "vim-plug setting
 fun! VimPlug()
-    call plug#begin('~/.vim/bundle')
+    call plug#begin('~/.config/vim/bundle')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
         Plug 'vim-airline/vim-airline'

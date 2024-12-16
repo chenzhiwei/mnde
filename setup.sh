@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # shellcheck shell=bash
 
 set -eu -o pipefail
@@ -10,11 +10,10 @@ param=${1:-unknown}
 
 ## Make config
 function make_config() {
-    mkdir -p ~/{.ssh,.vim,.local,.config}
-    \cp -r .ssh/*       ~/.ssh/
-    \cp -r .vim/*       ~/.vim/
-    \cp -r .config/*    ~/.config/
-    \cp .npmrc .screenrc ~/
+    mkdir -p ~/{.ssh,.config}
+    ln -sf -t ~/.ssh .ssh/config
+    ln -sf -t ~/.config .config/{git,go,pip,vim,wezterm}
+    ln -sf -t ~ ./{.screenrc,.npmrc}
 
     if type flatpak &>/dev/null; then
         flatpak override --user --unset-env=QT_IM_MODULE
