@@ -1,5 +1,12 @@
 # iTem2 config
 
+## Backup
+
+```
+cp ~/Library/Preferences/com.googlecode.iterm2.plist com.googlecode.iterm2.plist.xml
+plutil -convert xml1 com.googlecode.iterm2.plist.xml
+```
+
 ## Restore
 
 ```
