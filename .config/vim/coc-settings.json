@@ -1,5 +1,8 @@
 {
-  "coc.preferences.formatOnSave": true,
+  "[go]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "suggest.noselect": true,
   "python.formatting.provider": "ruff",
   "python.linting.ruffEnabled": true,
   "pyright.organizeimports.provider": "ruff",
