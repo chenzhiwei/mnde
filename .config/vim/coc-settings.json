@@ -20,6 +20,17 @@
       "filetypes": [
         "go"
       ]
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {}
     }
   },
   "snippets.ultisnips.pythonPrompt": false
