@@ -9,7 +9,10 @@ cd "$ROOT_PATH"
 
 ## Setup mito
 function setup_mito() {
-    sudo mkdir -p /opt/mito && sudo chown -R $USER:$USER /opt/mito
+    if [ ! -d /opt/mito ]; then
+        sudo mkdir -p /opt/mito && sudo chown -R $USER:$USER /opt/mito
+    fi
+
     cp -r mito/* /opt/mito/
 
     if ! grep -wq /opt/mito/bin/mito $HOME/.bashrc; then
