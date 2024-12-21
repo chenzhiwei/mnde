@@ -88,6 +88,15 @@ function kind() {
     ln -sf ../packs/k8s/kind .
 }
 
+function kubebuilder() {
+    local dir=$BASE_DIR/packs/k8s
+    mkdir -p $dir
+    curl -L -o $dir/kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/latest/download/kubebuilder-linux-amd64
+    chmod +x $dir/kubebuilder
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/k8s/kubebuilder .
+}
+
 function go() {
     local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
     local dir=$BASE_DIR/go
