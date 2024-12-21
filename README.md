@@ -7,10 +7,10 @@ Quick Start:
 ```
 cd ~
 git clone https://github.com/chenzhiwei/mnde .mnde
-.mnde/setup.sh config
-.mnde/setup.sh go
-.mnde/setup.sh node
-source .mnde/init.bash
+.mnde/setup.sh
+eval $(/opt/mito/bin/mito shellenv)
+mito install go
+mito install node
 go install golang.org/x/tools/gopls@latest
 vim +PlugInstall +qall
 ```

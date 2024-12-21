@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+compat_dir=/opt/mito/etc/bash_completion.d
+if [[ -d $compat_dir && -r $compat_dir && -x $compat_dir ]]; then
+    for i in "$compat_dir"/*; do
+        . "$i"
+    done
+fi

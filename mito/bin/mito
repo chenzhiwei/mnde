@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+# shellcheck shell=bash
+
+set -eu -o pipefail
+
+BASE_DIR=/opt/mito
+BASE_BIN_DIR=/opt/mito/bin
+
+cmd=${1-}
+pack=${2-}
+
+function common::precheck() {
+    local flag=0
+    for cmd in curl jq unxz unzip; do
+        if ! type $cmd &>/dev/null; then
+            echo "$cmd is not installed"
+            flag=1
+        fi
+    done
+
+    [[ $flag -eq 1 ]] && exit 0
+}
+
+function common::latest_version() {
+    local project=$1
+    local version=$(curl -sSL https://api.github.com/repos/$project/releases/latest | jq -r .tag_name)
+    echo $version
+}
+
+function common::shellenv() {
+    GOPATH=$HOME/dev/go
+    for path in /opt/mito/bin /opt/mito/go/bin /opt/mito/node/bin $GOPATH/bin; do
+        if [[ "$PATH" != *$path* ]]; then
+            PATH="$path:$PATH"
+        fi
+    done
+
+    echo "export PATH=$PATH"
+    echo "export GOPATH=$GOPATH"
+}
+
+function uv() {
+    local dir=$BASE_DIR/packs/uv
+    mkdir -p $dir
+    curl -L https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz \
+        | tar -xz --strip=1 --directory=$dir uv-x86_64-unknown-linux-gnu/{uv,uvx}
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/uv/{uv,uvx} .
+}
+
+function ruff() {
+    local dir=$BASE_DIR/packs/ruff
+    mkdir -p $dir
+    curl -L https://github.com/astral-sh/ruff/releases/latest/download/ruff-x86_64-unknown-linux-gnu.tar.gz \
+        | tar -xz --strip=1 --directory=$dir ruff-x86_64-unknown-linux-gnu/ruff
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/ruff/ruff .
+}
+
+function kubectl() {
+    local version=$(curl -sSL https://dl.k8s.io/release/stable.txt)
+    local dir=$BASE_DIR/packs/k8s
+    mkdir -p $dir
+    curl -L -o $dir/kubectl https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl
+    chmod +x $dir/kubectl
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/k8s/kubectl .
+}
+
+function helm() {
+    local version=$(common::latest_version helm/helm)
+    local dir=$BASE_DIR/packs/helm
+    mkdir -p $dir
+    curl -L https://get.helm.sh/helm-$version-linux-amd64.tar.gz \
+        | tar -xz --strip=1 --directory=$dir linux-amd64/helm
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/helm/helm .
+}
+
+function kind() {
+    local dir=$BASE_DIR/packs/k8s
+    mkdir -p $dir
+    curl -L -o $dir/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
+    chmod +x $dir/kind
+    cd $BASE_BIN_DIR
+    ln -sf ../packs/k8s/kind .
+}
+
+function go() {
+    local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
+    local dir=$BASE_DIR/go
+    mkdir -p $dir
+    curl -L https://golang.google.cn/dl/$version.linux-amd64.tar.gz \
+        | tar -xz --strip=1 --directory=$dir
+}
+
+function node() {
+    local version=$(curl -sSL https://mirrors.huaweicloud.com/nodejs/index.tab | awk 'NR==2 {print $1}')
+    local dir=$BASE_DIR/node
+    mkdir -p $dir
+    curl -L https://mirrors.huaweicloud.com/nodejs/$version/node-$version-linux-x64.tar.xz \
+        | tar -xJ --strip=1 --directory=$dir
+}
+
+case $cmd in
+    install)
+        common::precheck
+        eval $pack
+        ;;
+    shellenv)
+        common::shellenv
+        ;;
+esac
