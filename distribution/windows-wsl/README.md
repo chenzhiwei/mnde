@@ -1,8 +1,31 @@
 # Windows
 
-我十年没使用 Windows 了，自从工作以后一直都是使用 Ubuntu 和 MacOS。
+Windows 里的 WSL2 Ubuntu 和 Windows Terminal 配合使用很赞。
 
-最近发现 Windows 里的 WSL2 Ubuntu 和 Windows Terminal 配合使用很赞。
+## WSL2配置文件
+
+位置：`%UserProfile%\.wslconfig`
+
+```
+[wsl2]
+dnsTunneling=true
+networkingMode=mirrored
+kernelCommandLine=cgroup_no_v1=all
+```
+
+## WSL2 中挂载盘
+
+```
+sudo mkdir /mnt/f
+sudo mount -t drvfs F: /mnt/f
+```
+
+## Ubuntu设置24小时格式
+
+```
+vim /etc/default/locale
+LC_TIME=C.UFT-8
+```
 
 ## 给PowerShell设置profile
 
@@ -50,16 +73,3 @@ https://www.microsoft.com/zh-cn/software-download/windows11
 
 1. 打开 https://account.microsoft.com/
 2. 在『服务与订阅』页面查找已经购买的 Office 产品，然后下载安装
-
-## 删除多余的图标
-
-有时卸载完软件，在系统设置里`选择哪些图标显示在任务栏上`还是会显示残留的图标，让人看着不爽。
-
-打开 PowerShell 并运行以下命令可以解决：
-
-```
-reg delete "HKCR\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v IconStreams /f
-reg delete "HKCR\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v PromotedIconCache /f
-taskkill /f /im explorer.exe
-explorer.exe
-```
