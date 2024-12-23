@@ -47,7 +47,8 @@ We now use MacBook as workstation, following are some tips to tweak macos to mee
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install bash bash-completion binutils coreutils findutils gawk git git-review gnupg gnu-sed gzip kubectl nmap tree wget openssl iproute2mac
+brew install bash bash-completion binutils coreutils findutils gawk git gnupg gnu-sed gzip iproute2mac jq kubectl nmap openssl tree wget xz yq
+brew install helm kubectl kubebuilder ruff uv
 ```
 
 ## Setup Bash
