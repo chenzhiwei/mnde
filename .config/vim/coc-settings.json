@@ -1,7 +1,8 @@
 {
-  "[go][python]": {
-    "coc.preferences.formatOnSave": true
+  "[json]": {
+    "coc.preferences.formatOnSave": false
   },
+  "coc.preferences.formatOnSave": true,
   "suggest.noselect": true,
   "python.formatting.provider": "ruff",
   "python.linting.ruffEnabled": true,
