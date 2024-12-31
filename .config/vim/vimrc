@@ -36,14 +36,6 @@ set whichwrap+=<,>,h,l
 "show matching bracets
 set showmatch
 
-"Text options
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set smarttab
-set linebreak
-
 "Auto-complete filename command mode
 set wildmode=list:longest,full
 
@@ -62,6 +54,14 @@ set directory=/tmp//
 
 "Enable filetype
 filetype plugin indent on
+
+"Text options
+set expandtab
+set smarttab
+set linebreak
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 "Enable syntax hl
 syntax enable
@@ -135,7 +135,9 @@ endif
 
 "FileType
 autocmd FileType go setlocal noexpandtab
-autocmd FileType html,css,javascript,json,jsonc,lua,xml,yaml,toml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css,html,javascript,javascriptreact,
+                \json,jsonc,lua,toml,typescript,typescriptreact,
+                \xml,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "vim-plug setting
 fun! VimPlug()
@@ -167,5 +169,6 @@ let g:coc_global_extensions = [
     \'coc-yaml',
     \'coc-pyright',
     \'coc-snippets',
-    \'coc-tabnine'
+    \'coc-tabnine',
+    \'coc-tsserver'
     \]
