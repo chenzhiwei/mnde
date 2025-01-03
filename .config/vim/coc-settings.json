@@ -1,5 +1,5 @@
 {
-  "[json]": {
+  "[json][jsonc]": {
     "coc.preferences.formatOnSave": false
   },
   "coc.preferences.formatOnSave": true,
