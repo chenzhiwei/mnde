@@ -30,7 +30,7 @@ function setup_mito() {
 function make_config() {
     mkdir -p ~/{.ssh,.config}
     ln -sf -t ~/.ssh ../.mnde/.ssh/config
-    ln -sf -t ~/.config ../.mnde/.config/{git,go,pip,vim,wezterm}
+    ln -sf -t ~/.config ../.mnde/.config/{git,go,pip,vim,wezterm,ghostty}
     ln -sf -t ~ .mnde/{.screenrc,.npmrc}
 
     if type flatpak &>/dev/null; then
