@@ -10,6 +10,10 @@
   "pyright.inlayHints.variableTypes": false,
   "pyright.inlayHints.parameterTypes": false,
   "pyright.inlayHints.functionReturnTypes": false,
+  "javascript.format.semicolons": "insert",
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "double",
   "languageserver": {
     "go": {
       "command": "gopls",
