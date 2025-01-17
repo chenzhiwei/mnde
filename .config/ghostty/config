@@ -1,12 +1,22 @@
 theme = Ubuntu
 cursor-style = block
 cursor-style-blink = false
+shell-integration-features = no-cursor,no-title
+
+# disable font ligature
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
 window-height = 99999
 window-width = 99999
 window-save-state = always
-copy-on-select = true
+
+# copy to selection and system clipboard
+copy-on-select = clipboard
+
+# native window on kde
 gtk-adwaita = false
 gtk-titlebar = false
 gtk-wide-tabs = false
 window-theme = system
-shell-integration-features = no-cursor,no-title
