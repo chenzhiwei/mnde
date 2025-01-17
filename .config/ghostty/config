@@ -1,8 +1,12 @@
 theme = Ubuntu
 cursor-style = block
 cursor-style-blink = false
-gtk-wide-tabs = false
 window-height = 99999
 window-width = 99999
 window-save-state = always
 copy-on-select = true
+gtk-adwaita = false
+gtk-titlebar = false
+gtk-wide-tabs = false
+window-theme = system
+shell-integration-features = no-cursor
