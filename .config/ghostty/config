@@ -9,4 +9,4 @@ gtk-adwaita = false
 gtk-titlebar = false
 gtk-wide-tabs = false
 window-theme = system
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,no-title
