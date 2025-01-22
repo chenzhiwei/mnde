@@ -20,3 +20,4 @@ gtk-adwaita = false
 gtk-titlebar = false
 gtk-wide-tabs = false
 window-theme = system
+macos-titlebar-style = native
