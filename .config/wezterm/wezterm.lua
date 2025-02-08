@@ -52,6 +52,22 @@ config.keys = {
   {key = '7', mods = 'ALT', action = act.ActivateTab(6)},
   {key = '8', mods = 'ALT', action = act.ActivateTab(7)},
   {key = '9', mods = 'ALT', action = act.ActivateTab(-1)},
+  {key = 'l', mods = 'CTRL', action = wezterm.action_callback(function(window, pane)
+    -- scroll to bottom in case you aren't already
+    window:perform_action(wezterm.action.ScrollToBottom, pane)
+
+    -- get the current height of the viewport
+    local height = pane:get_dimensions().viewport_rows
+
+    -- build a string of new lines equal to the viewport height
+    local blank_viewport = string.rep('\r\n', height)
+
+    -- inject those new lines to push the viewport contents into the scrollback
+    pane:inject_output(blank_viewport)
+
+    -- send an escape sequence to clear the viewport (CTRL-L)
+    pane:send_text('\x0c')
+  end)},
 }
 
 -- CTRL+ALT + number to move to that position
