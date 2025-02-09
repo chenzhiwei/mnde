@@ -69,6 +69,9 @@ syntax enable
 "Highlight trailing spaces/tabs
 match ErrorMsg '\s\+$'
 
+"Get rid of termguicolors
+set notermguicolors
+
 "Highlight settings in Visual select and Diff mode
 highlight Search ctermfg=DarkBlue
 highlight Visual ctermfg=White ctermbg=LightBlue
