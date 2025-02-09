@@ -8,3 +8,6 @@ set -o emacs
 
 ## python no bytecode(__pycache__)
 export PYTHONDONTWRITEBYTECODE=1
+
+## enable wezterm shell integration
+[[ "$TERM_PROGRAM" == "WezTerm" ]] && source $HOME/.mnde/.config/wezterm/shell-integration.sh
