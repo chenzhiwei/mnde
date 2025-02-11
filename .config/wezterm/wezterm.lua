@@ -61,6 +61,8 @@ config.keys = {
   {key = '7', mods = 'CTRL|ALT', action = act.MoveTab(6)},
   {key = '8', mods = 'CTRL|ALT', action = act.MoveTab(7)},
   {key = '9', mods = 'CTRL|ALT', action = act.MoveTab(8)},
+  {key = '[', mods = 'CTRL|ALT', action = act.MoveTabRelative(-1)},
+  {key = ']', mods = 'CTRL|ALT', action = act.MoveTabRelative(1)},
   {key = 'F9', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection'},
   {key = 'l', mods = 'CTRL', action = wezterm.action_callback(function(window, pane)
     -- scroll to bottom in case you aren't already
