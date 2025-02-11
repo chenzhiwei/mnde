@@ -52,6 +52,16 @@ config.keys = {
   {key = '7', mods = 'ALT', action = act.ActivateTab(6)},
   {key = '8', mods = 'ALT', action = act.ActivateTab(7)},
   {key = '9', mods = 'ALT', action = act.ActivateTab(-1)},
+  {key = '1', mods = 'CTRL|ALT', action = act.MoveTab(0)},
+  {key = '2', mods = 'CTRL|ALT', action = act.MoveTab(1)},
+  {key = '3', mods = 'CTRL|ALT', action = act.MoveTab(2)},
+  {key = '4', mods = 'CTRL|ALT', action = act.MoveTab(3)},
+  {key = '5', mods = 'CTRL|ALT', action = act.MoveTab(4)},
+  {key = '6', mods = 'CTRL|ALT', action = act.MoveTab(5)},
+  {key = '7', mods = 'CTRL|ALT', action = act.MoveTab(6)},
+  {key = '8', mods = 'CTRL|ALT', action = act.MoveTab(7)},
+  {key = '9', mods = 'CTRL|ALT', action = act.MoveTab(8)},
+  {key = 'F9', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection'},
   {key = 'l', mods = 'CTRL', action = wezterm.action_callback(function(window, pane)
     -- scroll to bottom in case you aren't already
     window:perform_action(wezterm.action.ScrollToBottom, pane)
@@ -69,15 +79,6 @@ config.keys = {
     pane:send_text('\x0c')
   end)},
 }
-
--- CTRL+ALT + number to move to that position
-for i = 1, 8 do
-  table.insert(config.keys, {
-    key = tostring(i),
-    mods = 'CTRL|ALT',
-    action = wezterm.action.MoveTab(i - 1),
-  })
-end
 
 -- ctrl-click to open links
 config.mouse_bindings = {
