@@ -102,6 +102,12 @@ config.mouse_bindings = {
     mods = 'CTRL',
     action = act.Nop,
   },
+  -- Right click to paste
+  {
+		event = { Down = { streak = 1, button = "Right" } },
+		mods = "NONE",
+		action = act({ PasteFrom = "Clipboard" }),
+	},
 }
 
 -- disable ligatures
