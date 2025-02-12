@@ -21,3 +21,5 @@ gtk-titlebar = false
 gtk-wide-tabs = false
 window-theme = system
 macos-titlebar-style = native
+
+keybind = shift+f9=paste_from_selection
