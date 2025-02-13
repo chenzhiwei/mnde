@@ -61,6 +61,12 @@ cp .bash_profile ~/
 
 ## Skills and Tips
 
+### Unset Git osxkeychain helper
+
+```
+git config --system --unset credential.helper
+```
+
 ### Setup Ubuntu env
 
 Find a vagrant box from <https://vagrantcloud.com>, suppose the box is `ubuntu/trusty64`.
