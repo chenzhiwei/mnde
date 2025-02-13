@@ -148,6 +148,7 @@ fun! VimPlug()
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
         Plug 'vim-airline/vim-airline'
+        Plug 'towolf/vim-helm'
     call plug#end()
 endfun
 silent! call VimPlug()
