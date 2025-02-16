@@ -88,7 +88,7 @@ map q <Nop>
 
 "When highlight words, don't jump to next
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-nnoremap <silent> <C-l> :nohls<CR><C-l>
+nnoremap <silent> <C-k> :nohls<CR><C-k>
 
 "Map :Q to :q, :W to :w
 cnoreabbrev Q <C-r>=(getcmdtype()==':'? 'q!' : 'Q')<CR>
