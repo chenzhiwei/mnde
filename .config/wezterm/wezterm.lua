@@ -68,6 +68,11 @@ config.keys = {
     -- scroll to bottom in case you aren't already
     window:perform_action(wezterm.action.ScrollToBottom, pane)
 
+    -- avoid running in tui programs like vim that don't have scrollback
+    if pane:is_alt_screen_active() then
+      return
+    end
+
     -- get the current height of the viewport
     local height = pane:get_dimensions().viewport_rows
 
