@@ -23,3 +23,6 @@ gtk-wide-tabs = false
 app-notifications = false
 
 keybind = shift+f9=paste_from_selection
+keybind = shift+f10=paste_from_selection
+
+gtk-custom-css = gtk.css
