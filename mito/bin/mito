@@ -30,18 +30,6 @@ function common::latest_version() {
     echo $version
 }
 
-function common::shellenv() {
-    GOPATH=$HOME/dev/go
-    for path in /opt/mito/bin /opt/mito/go/bin /opt/mito/node/bin $GOPATH/bin; do
-        if [[ "$PATH" != *$path* ]]; then
-            PATH="$path:$PATH"
-        fi
-    done
-
-    echo "export PATH=$PATH"
-    echo "export GOPATH=$GOPATH"
-}
-
 function uv() {
     curl -L https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz \
         | tar -xz --strip=1 --directory=$MITO_BIN_DIR uv-x86_64-unknown-linux-gnu/{uv,uvx}
@@ -106,9 +94,6 @@ case $cmd in
     install)
         common::precheck
         eval $pkgname
-        ;;
-    shellenv)
-        common::shellenv
         ;;
     *)
         echo "mito install pkg"

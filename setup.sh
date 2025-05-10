@@ -14,16 +14,6 @@ function setup_mito() {
     fi
 
     cp -r mito/* /opt/mito/
-
-    if ! grep -wq /opt/mito/bin/mito $HOME/.bashrc; then
-        echo '' >> $HOME/.bashrc
-        echo '# mito configuration' >> $HOME/.bashrc
-        echo '. /opt/mito/etc/bash_completion' >> $HOME/.bashrc
-        echo 'eval $(/opt/mito/bin/mito shellenv)' >> $HOME/.bashrc
-
-        echo 'please run following command'
-        echo 'eval $(/opt/mito/bin/mito shellenv)'
-    fi
 }
 
 ## Make config
