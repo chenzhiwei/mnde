@@ -3,11 +3,12 @@
 
 set -eu -o pipefail
 
-BASE_DIR=/opt/mito
-BASE_BIN_DIR=/opt/mito/bin
+MITO_DIR=/opt/mito
+MITO_BIN_DIR=/opt/mito/bin
+MITO_COMPLETION_DIR=/opt/mito/etc/bash_completion.d
 
 cmd=${1-}
-pack=${2-}
+pkgname=${2-}
 
 function common::precheck() {
     local flag=0
@@ -42,64 +43,52 @@ function common::shellenv() {
 }
 
 function uv() {
-    local dir=$BASE_DIR/packs/uv
-    mkdir -p $dir
     curl -L https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz \
-        | tar -xz --strip=1 --directory=$dir uv-x86_64-unknown-linux-gnu/{uv,uvx}
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/uv/{uv,uvx} .
+        | tar -xz --strip=1 --directory=$MITO_BIN_DIR uv-x86_64-unknown-linux-gnu/{uv,uvx}
+    uv generate-shell-completion bash > $MITO_COMPLETION_DIR/uv
 }
 
 function ruff() {
-    local dir=$BASE_DIR/packs/ruff
-    mkdir -p $dir
     curl -L https://github.com/astral-sh/ruff/releases/latest/download/ruff-x86_64-unknown-linux-gnu.tar.gz \
-        | tar -xz --strip=1 --directory=$dir ruff-x86_64-unknown-linux-gnu/ruff
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/ruff/ruff .
-}
-
-function kubectl() {
-    local version=$(curl -sSL https://dl.k8s.io/release/stable.txt)
-    local dir=$BASE_DIR/packs/k8s
-    mkdir -p $dir
-    curl -L -o $dir/kubectl https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl
-    chmod +x $dir/kubectl
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/k8s/kubectl .
+        | tar -xz --strip=1 --directory=$MITO_BIN_DIR ruff-x86_64-unknown-linux-gnu/ruff
+    ruff generate-shell-completion bash > $MITO_COMPLETION_DIR/ruff
 }
 
 function helm() {
     local version=$(common::latest_version helm/helm)
-    local dir=$BASE_DIR/packs/helm
-    mkdir -p $dir
     curl -L https://get.helm.sh/helm-$version-linux-amd64.tar.gz \
-        | tar -xz --strip=1 --directory=$dir linux-amd64/helm
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/helm/helm .
+        | tar -xz --strip=1 --directory=$MITO_BIN_DIR linux-amd64/helm
+    helm completion bash > $MITO_COMPLETION_DIR/helm
+}
+
+function kubectl() {
+    local version=$(curl -sSL https://dl.k8s.io/release/stable.txt)
+    curl -L -o $MITO_BIN_DIR/kubectl https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl
+    chmod +x $MITO_BIN_DIR/kubectl
+    kubectl completion bash > $MITO_COMPLETION_DIR/kubectl
 }
 
 function kind() {
-    local dir=$BASE_DIR/packs/k8s
-    mkdir -p $dir
-    curl -L -o $dir/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-    chmod +x $dir/kind
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/k8s/kind .
+    curl -L -o $MITO_BIN_DIR/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
+    chmod +x $MITO_BIN_DIR/kind
+    kind completion bash > $MITO_COMPLETION_DIR/kind
 }
 
 function kubebuilder() {
-    local dir=$BASE_DIR/packs/k8s
-    mkdir -p $dir
-    curl -L -o $dir/kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/latest/download/kubebuilder-linux-amd64
-    chmod +x $dir/kubebuilder
-    cd $BASE_BIN_DIR
-    ln -sf ../packs/k8s/kubebuilder .
+    curl -L -o $MITO_BIN_DIR/kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/latest/download/kubebuilder-linux-amd64
+    chmod +x $MITO_BIN_DIR/kubebuilder
+    kubebuilder completion bash > $MITO_COMPLETION_DIR/kubebuilder
+}
+
+function yq() {
+    curl -L -o $MITO_BIN_DIR/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+    chmod +x $MITO_BIN_DIR/yq
+    yq completion bash > $MITO_COMPLETION_DIR/yq
 }
 
 function go() {
     local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
-    local dir=$BASE_DIR/go
+    local dir=$MITO_DIR/go
     mkdir -p $dir
     curl -L https://golang.google.cn/dl/$version.linux-amd64.tar.gz \
         | tar -xz --strip=1 --directory=$dir
@@ -107,7 +96,7 @@ function go() {
 
 function node() {
     local version=$(curl -sSL https://mirrors.huaweicloud.com/nodejs/index.tab | awk 'NR==2 {print $1}')
-    local dir=$BASE_DIR/node
+    local dir=$MITO_DIR/node
     mkdir -p $dir
     curl -L https://mirrors.huaweicloud.com/nodejs/$version/node-$version-linux-x64.tar.xz \
         | tar -xJ --strip=1 --directory=$dir
@@ -116,9 +105,12 @@ function node() {
 case $cmd in
     install)
         common::precheck
-        eval $pack
+        eval $pkgname
         ;;
     shellenv)
         common::shellenv
+        ;;
+    *)
+        echo "mito install pkg"
         ;;
 esac

@@ -1,3 +1,27 @@
 #!/usr/bin/env bash
 
-complete -W "install shellenv" mito
+function _mito() {
+    local cur prev
+    local pkgs=$(awk -F "[ (]" '/^function/ && !/function common::/ {print $2}' /opt/mito/bin/mito)
+
+    cur=${COMP_WORDS[COMP_CWORD]}
+    prev=${COMP_WORDS[COMP_CWORD-1]}
+
+    case ${COMP_CWORD} in
+        1)
+            COMPREPLY=($(compgen -W "install shellenv" -- ${cur}))
+            ;;
+        2)
+            case ${prev} in
+                install)
+                    COMPREPLY=($(compgen -W "$pkgs" -- ${cur}))
+                    ;;
+            esac
+            ;;
+        *)
+            COMPREPLY=()
+            ;;
+    esac
+}
+
+complete -F _mito mito
