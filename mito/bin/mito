@@ -33,45 +33,45 @@ function common::latest_version() {
 function uv() {
     curl -L https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz \
         | tar -xz --strip=1 --directory=$MITO_BIN_DIR uv-x86_64-unknown-linux-gnu/{uv,uvx}
-    uv generate-shell-completion bash > $MITO_COMPLETION_DIR/uv
+    $MITO_BIN_DIR/uv generate-shell-completion bash > $MITO_COMPLETION_DIR/uv
 }
 
 function ruff() {
     curl -L https://github.com/astral-sh/ruff/releases/latest/download/ruff-x86_64-unknown-linux-gnu.tar.gz \
         | tar -xz --strip=1 --directory=$MITO_BIN_DIR ruff-x86_64-unknown-linux-gnu/ruff
-    ruff generate-shell-completion bash > $MITO_COMPLETION_DIR/ruff
+    $MITO_BIN_DIR/ruff generate-shell-completion bash > $MITO_COMPLETION_DIR/ruff
 }
 
 function helm() {
     local version=$(common::latest_version helm/helm)
     curl -L https://get.helm.sh/helm-$version-linux-amd64.tar.gz \
         | tar -xz --strip=1 --directory=$MITO_BIN_DIR linux-amd64/helm
-    helm completion bash > $MITO_COMPLETION_DIR/helm
+    $MITO_BIN_DIR/helm completion bash > $MITO_COMPLETION_DIR/helm
 }
 
 function kubectl() {
     local version=$(curl -sSL https://dl.k8s.io/release/stable.txt)
     curl -L -o $MITO_BIN_DIR/kubectl https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl
     chmod +x $MITO_BIN_DIR/kubectl
-    kubectl completion bash > $MITO_COMPLETION_DIR/kubectl
+    $MITO_BIN_DIR/kubectl completion bash > $MITO_COMPLETION_DIR/kubectl
 }
 
 function kind() {
     curl -L -o $MITO_BIN_DIR/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
     chmod +x $MITO_BIN_DIR/kind
-    kind completion bash > $MITO_COMPLETION_DIR/kind
+    $MITO_BIN_DIR/kind completion bash > $MITO_COMPLETION_DIR/kind
 }
 
 function kubebuilder() {
     curl -L -o $MITO_BIN_DIR/kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/latest/download/kubebuilder-linux-amd64
     chmod +x $MITO_BIN_DIR/kubebuilder
-    kubebuilder completion bash > $MITO_COMPLETION_DIR/kubebuilder
+    $MITO_BIN_DIR/kubebuilder completion bash > $MITO_COMPLETION_DIR/kubebuilder
 }
 
 function yq() {
     curl -L -o $MITO_BIN_DIR/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
     chmod +x $MITO_BIN_DIR/yq
-    yq completion bash > $MITO_COMPLETION_DIR/yq
+    $MITO_BIN_DIR/yq completion bash > $MITO_COMPLETION_DIR/yq
 }
 
 function go() {
@@ -93,7 +93,7 @@ function node() {
 case $cmd in
     install)
         common::precheck
-        eval $pkgname
+        $pkgname
         ;;
     *)
         echo "mito install pkg"
