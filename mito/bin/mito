@@ -74,6 +74,12 @@ function yq() {
     $MITO_BIN_DIR/yq completion bash > $MITO_COMPLETION_DIR/yq
 }
 
+function certctl() {
+    curl -L -o $MITO_BIN_DIR/certctl https://github.com/chenzhiwei/certctl/releases/latest/download/certctl
+    chmod +x $MITO_BIN_DIR/certctl
+    $MITO_BIN_DIR/certctl completion bash > $MITO_COMPLETION_DIR/certctl
+}
+
 function go() {
     local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
     local dir=$MITO_DIR/go
