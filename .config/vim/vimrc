@@ -154,9 +154,20 @@ endfun
 silent! call VimPlug()
 
 "nerdtree plugin
-nmap <F8> :NERDTreeToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
 
 "coc.nvim plugin
+"CocOutline
+nnoremap <silent><nowait> <F8>  :call ToggleOutline()<CR>
+fun! ToggleOutline() abort
+    let winid = coc#window#find('cocViewId', 'OUTLINE')
+    if winid == -1
+        call CocActionAsync('showOutline', 1)
+    else
+        call coc#window#close(winid)
+    endif
+endfun
+
 highlight CocFloating ctermbg=235 guibg=#13354A
 highlight CocMenuSel ctermbg=237 guibg=#13354A
 command! -nargs=0 Format call CocAction('format')
