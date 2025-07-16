@@ -1,0 +1,28 @@
+revealer {
+  background-color: #333333;
+}
+
+tabbar tabbox {
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  border-image-width: 0;
+}
+
+tabbar tabbox tab {
+  margin: 0;
+  padding: 0;
+  color: #808080;
+}
+
+tabbar tabbox tab:selected {
+  color: #c0c0c0;
+  background-color: #300a24;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+tabbar tabbox tab label {
+  font-size: 14px;
+  font-weight: bold;
+}

@@ -14,15 +14,14 @@ font-feature = -dlig
 # window ui
 maximize = true
 gtk-wide-tabs = false
+gtk-custom-css = gtk.css
+window-show-tab-bar = always
 # window-decoration = auto
 # gtk-titlebar = true
 # window-theme = auto
-# window-show-tab-bar = always
 
 # disable in-app notification
 app-notifications = false
 
 keybind = shift+f9=paste_from_selection
 keybind = shift+f10=paste_from_selection
-
-gtk-custom-css = gtk.css
