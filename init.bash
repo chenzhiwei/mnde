@@ -9,9 +9,6 @@ set -o emacs
 ## python no bytecode(__pycache__)
 export PYTHONDONTWRITEBYTECODE=1
 
-## enable wezterm shell integration
-[[ "$TERM_PROGRAM" == "WezTerm" ]] && source $HOME/.mnde/.config/wezterm/shell-integration.sh
-
 ## mito
 GOPATH=$HOME/dev/go
 for path in /opt/mito/bin /opt/mito/go/bin /opt/mito/node/bin $GOPATH/bin; do
