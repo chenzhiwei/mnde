@@ -96,6 +96,11 @@ function node() {
         | tar -xJ --strip=1 --directory=$dir
 }
 
+function rust() {
+    curl -sSf https://sh.rustup.rs | RUSTUP_HOME=/opt/mito/rustup CARGO_HOME=/opt/mito/cargo sh -s -- -y
+    /opt/mito/cargo/bin/rustup completions bash > $MITO_COMPLETION_DIR/rustup
+}
+
 case $cmd in
     install)
         common::precheck
