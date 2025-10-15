@@ -89,10 +89,10 @@ function go() {
 }
 
 function node() {
-    local version=$(curl -sSL https://mirrors.huaweicloud.com/nodejs/index.tab | awk 'NR==2 {print $1}')
+    local version=$(curl -sSL https://mirrors.aliyun.com/nodejs-release/index.tab | awk 'NR==2 {print $1}')
     local dir=$MITO_DIR/node
     mkdir -p $dir
-    curl -L https://mirrors.huaweicloud.com/nodejs/$version/node-$version-linux-x64.tar.xz \
+    curl -L https://mirrors.aliyun.com/nodejs-release/$version/node-$version-linux-x64.tar.xz \
         | tar -xJ --strip=1 --directory=$dir
 }
 
