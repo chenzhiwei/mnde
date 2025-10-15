@@ -1,27 +1,21 @@
 theme = Ubuntu
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor,no-title
-
-# copy to selection and system clipboard
-copy-on-select = clipboard
 
 # disable font ligature
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
+font-feature = -calt, -liga, -dlig
 
 # window ui
 maximize = true
-gtk-wide-tabs = false
-gtk-custom-css = gtk.css
 window-show-tab-bar = always
-# window-decoration = auto
-# gtk-titlebar = true
-# window-theme = auto
+gtk-wide-tabs = false
 
-# disable in-app notification
 app-notifications = false
+shell-integration-features = no-cursor,no-title,ssh-env
 
 keybind = shift+f9=paste_from_selection
 keybind = shift+f10=paste_from_selection
+
+gtk-custom-css = gtk.css
+
+config-file = ?config.macos
