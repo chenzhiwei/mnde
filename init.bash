@@ -6,6 +6,9 @@ stty -ixon
 ## make bash in emacs mode
 set -o emacs
 
+## Bash history control
+export HISTCONTROL=ignoredups:ignorespace
+
 ## python no bytecode(__pycache__)
 export PYTHONDONTWRITEBYTECODE=1
 
