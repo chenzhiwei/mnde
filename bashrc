@@ -1,4 +1,4 @@
-# shellcheck source=init.bash
+# shellcheck source=bashrc
 
 ## disable ctrl-s and ctrl-q
 stty -ixon
