@@ -19,6 +19,27 @@ shell-integration-features = no-cursor,no-title,ssh-env
 keybind = shift+f9=paste_from_selection
 keybind = shift+f10=paste_from_selection
 
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = alt+9=last_tab
+keybind = alt+digit_1=goto_tab:1
+keybind = alt+digit_2=goto_tab:2
+keybind = alt+digit_3=goto_tab:3
+keybind = alt+digit_4=goto_tab:4
+keybind = alt+digit_5=goto_tab:5
+keybind = alt+digit_6=goto_tab:6
+keybind = alt+digit_7=goto_tab:7
+keybind = alt+digit_8=goto_tab:8
+keybind = alt+digit_9=last_tab
+keybind = ctrl+alt+arrow_left=move_tab:-1
+keybind = ctrl+alt+arrow_right=move_tab:1
+
 gtk-custom-css = gtk.css
 
 config-file = ?config.macos
