@@ -7,8 +7,11 @@ font-feature = -calt, -liga, -dlig
 
 # window ui
 maximize = true
+window-decoration = none
 window-show-tab-bar = always
 gtk-wide-tabs = false
+gtk-titlebar-style = tabs
+window-theme = ghostty
 
 app-notifications = false
 shell-integration-features = no-cursor,no-title,ssh-env
