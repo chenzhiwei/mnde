@@ -80,6 +80,21 @@ function certctl() {
     $MITO_BIN_DIR/certctl completion bash > $MITO_COMPLETION_DIR/certctl
 }
 
+function terraform() {
+    local version=$(curl -sSL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r .current_version)
+    curl -L -o /var/tmp/terraform.zip https://releases.hashicorp.com/terraform/${version}/terraform_${version}_linux_amd64.zip \
+        && unzip -o /var/tmp/terraform.zip terraform -d $MITO_BIN_DIR \
+        && rm -f /var/tmp/terraform.zip
+}
+
+function terraform-ls() {
+    local version=$(curl -sSL https://checkpoint-api.hashicorp.com/v1/check/terraform-ls | jq -r .current_version)
+    echo $version
+    curl -L -o /var/tmp/terraform-ls.zip https://releases.hashicorp.com/terraform-ls/${version}/terraform-ls_${version}_linux_amd64.zip \
+        && unzip -o /var/tmp/terraform-ls.zip terraform-ls -d $MITO_BIN_DIR \
+        && rm -f /var/tmp/terraform-ls.zip
+}
+
 function go() {
     local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
     local dir=$MITO_DIR/go
