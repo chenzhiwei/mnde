@@ -36,6 +36,11 @@ function uv() {
     $MITO_BIN_DIR/uv generate-shell-completion bash > $MITO_COMPLETION_DIR/uv
 }
 
+function ty() {
+    curl -L https://github.com/astral-sh/ty/releases/latest/download/ty-x86_64-unknown-linux-gnu.tar.gz \
+        | tar -xz --strip=1 --directory=$MITO_BIN_DIR ty-x86_64-unknown-linux-gnu/ty
+}
+
 function ruff() {
     curl -L https://github.com/astral-sh/ruff/releases/latest/download/ruff-x86_64-unknown-linux-gnu.tar.gz \
         | tar -xz --strip=1 --directory=$MITO_BIN_DIR ruff-x86_64-unknown-linux-gnu/ruff
