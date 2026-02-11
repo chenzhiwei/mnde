@@ -100,6 +100,11 @@ function terraform-ls() {
         && rm -f /var/tmp/terraform-ls.zip
 }
 
+function gopls() {
+    export GOPATH=$HOME/dev/go
+    /opt/mito/go/bin/go install golang.org/x/tools/gopls@latest
+}
+
 function go() {
     local version=$(curl -sSL https://golang.google.cn/VERSION?m=text|head -1)
     local dir=$MITO_DIR/go

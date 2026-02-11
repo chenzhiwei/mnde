@@ -31,5 +31,15 @@ function make_config() {
     fi
 }
 
+## Tips
+function tips() {
+    echo
+    echo "source ~/.mnde/bashrc"
+    echo "mito install go"
+    echo "mito install gopls"
+    echo "mito install node"
+    echo
+}
+
 setup_mito
 make_config
