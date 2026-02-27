@@ -1,6 +1,12 @@
 # scrollback buff, 50000 lines
 defscrollback 50000
 
+# enable log
+deflog on
+
+# logfile path
+# logfile /var/log/screen/screen-%Y%m%d-%H%M%S.log
+
 # Enable alternate screen
 altscreen on
 
