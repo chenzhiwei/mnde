@@ -16,8 +16,8 @@ window-theme = ghostty
 app-notifications = false
 shell-integration-features = no-cursor,no-title,ssh-env
 
-keybind = shift+f9=paste_from_selection
-keybind = shift+f10=paste_from_selection
+copy-on-select = clipboard
+right-click-action = paste
 
 keybind = alt+1=goto_tab:1
 keybind = alt+2=goto_tab:2
@@ -42,4 +42,4 @@ keybind = ctrl+alt+arrow_right=move_tab:1
 
 gtk-custom-css = gtk.css
 
-config-file = ?config.macos
+config-file = ?.macos.config.ghostty

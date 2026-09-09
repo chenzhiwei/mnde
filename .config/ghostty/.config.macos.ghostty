@@ -1,7 +1,8 @@
 auto-update-channel = tip
 
-theme = Ubuntu
+window-decoration = auto
 macos-titlebar-style = native
+
 font-size = 16
 
 # macos key remap
@@ -11,9 +12,6 @@ font-size = 16
 key-remap = ctrl=alt
 key-remap = super=ctrl
 key-remap = alt=super
-
-window-decoration = auto
-# macos-titlebar-style = tabs
 
 keybind = alt+arrow_left=unbind
 keybind = alt+arrow_right=unbind
@@ -164,10 +162,10 @@ keybind = shift+arrow_left=adjust_selection:left
 keybind = shift+arrow_right=adjust_selection:right
 keybind = shift+arrow_up=adjust_selection:up
 keybind = shift+end=scroll_to_bottom
-keybind = shift+f10=paste_from_selection
-keybind = shift+f9=paste_from_selection
+keybind = shift+f10=paste_from_clipboard
+keybind = shift+f9=paste_from_clipboard
 keybind = shift+home=scroll_to_top
-keybind = shift+insert=paste_from_selection
+keybind = shift+insert=paste_from_clipboard
 keybind = shift+page_down=scroll_page_down
 keybind = shift+page_up=scroll_page_up
 keybind = super+ctrl+bracket_left=goto_split:previous
